@@ -1,20 +1,27 @@
 {
-  "name": "woocoomerce-nextjs",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
-  },
-  "devDependencies": {
-    "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6"
-  }
+	"name": "woocoomerce-nextjs",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "cross-env NODE_OPTIONS='--inspect' next dev",
+		"build": "next build && next export",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@woocommerce/woocommerce-rest-api": "^1.0.1",
+		"axios": "^0.27.2",
+		"classnames": "^2.3.1",
+		"next": "12.1.6",
+		"normalize.css": "^8.0.1",
+		"prop-types": "^15.8.1",
+		"react": "18.1.0",
+		"react-dom": "18.1.0"
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"eslint": "8.17.0",
+		"eslint-config-next": "12.1.6",
+		"sass": "^1.52.3"
+	}
 }

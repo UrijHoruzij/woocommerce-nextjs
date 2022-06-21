@@ -1,0 +1,134 @@
+$primary-color: #111111;
+$heading-color: #111111;
+$accent-color: #e53637;
+$white: #ffffff;
+$text-color: #333333;
+.cartTable {
+	margin-bottom: 30px;
+	table {
+		width: 100%;
+		thead {
+			border-bottom: 1px solid #f2f2f2;
+			tr {
+				th {
+					color: $heading-color;
+					font-size: 16px;
+					font-weight: 700;
+					text-transform: uppercase;
+					padding-bottom: 25px;
+				}
+			}
+		}
+		tbody {
+			tr {
+				border-bottom: 1px solid #f2f2f2;
+				td {
+					padding-bottom: 30px;
+					padding-top: 30px;
+				}
+			}
+		}
+	}
+}
+.cartItem {
+	width: 400px;
+	display: flex;
+	align-items: center;
+}
+.image {
+	object-fit: cover;
+}
+.cartItemImage {
+	width: 90px;
+	height: 90px;
+	position: relative;
+}
+.cartPrice {
+	color: #111111;
+	font-size: 18px;
+	font-weight: 700;
+	width: 140px;
+}
+.cartItemText {
+	overflow: hidden;
+	padding-top: 21px;
+	margin-left: 24px;
+	h6 {
+		margin: 0;
+		color: $heading-color;
+		font-size: 15px;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+	h5 {
+		color: #0d0d0d;
+		font-weight: 700;
+	}
+}
+.cartClose {
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+	position: relative;
+	&::before,
+	&::after {
+		display: block;
+		content: '';
+		width: 24px;
+		height: 2px;
+		border-radius: 4px;
+		background-color: #111111;
+		position: absolute;
+		top: 50%;
+		left: 0;
+	}
+	&::before {
+		transform: rotate(45deg);
+	}
+	&::after {
+		transform: rotate(-45deg);
+	}
+}
+.cartTotal {
+	background: #f3f2ee;
+	padding: 35px 40px 40px;
+	h4 {
+		color: $heading-color;
+		text-transform: uppercase;
+		margin-bottom: 12px;
+	}
+
+	ul {
+		margin-bottom: 24px;
+		padding: 0;
+		list-style-type: none;
+		li {
+			list-style: none;
+			font-size: 16px;
+			color: #444444;
+			line-height: 40px;
+			overflow: hidden;
+			span {
+				font-weight: 700;
+				color: $primary-color;
+				float: right;
+			}
+		}
+	}
+}
+.checkoutBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background: $accent-color;
+	border: none;
+	padding: 8px;
+	color: $white;
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+	border-radius: 4px;
+	cursor: pointer;
+	text-decoration: none;
+}
