@@ -56,10 +56,10 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 												loader={loader}
 												unoptimized={true}
 												layout="fill"
-												src="/images/cart.png"
+												src="/images/icon/cart.png"
 												alt="Cart"
 											/>
-											{cart && <span className={styles.cartCount}>{cart.length}</span>}
+											{cart && cart.length > 0 ? <span className={styles.cartCount}>{cart.length}</span> : null}
 										</div>
 										<div className={styles.price}>${total}</div>
 									</a>

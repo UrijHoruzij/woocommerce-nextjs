@@ -1,15 +1,17 @@
 import axios from 'axios';
 import { SITE_INFO, MENU, POSTS, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
-import { Layout, Categories, Products, LatestPosts } from '../src/components';
+import { Layout, Categories, Products, LatestPosts, Hero, Photos } from '../src/components';
 
 const Home = (props) => {
 	const { title, description, menu, products, categories, posts, logo } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description}>
+			<Hero />
 			<Categories categories={categories}></Categories>
 			<Products products={products} />
-			{/* <LatestPosts posts={posts} /> */}
+			<Photos/>
+			<LatestPosts posts={posts} />
 		</Layout>
 	);
 };

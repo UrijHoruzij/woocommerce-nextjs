@@ -9,3 +9,5 @@ export { default as TotalContext } from './context/totalContext';
 export { default as CartProvider } from './context';
 export { default as Cart } from './Cart';
 export { default as Checkout } from './Checkout';
+export { default as Hero } from './Hero';
+export { default as Photos } from './Photos';
