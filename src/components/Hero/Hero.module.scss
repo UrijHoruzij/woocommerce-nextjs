@@ -5,59 +5,115 @@ $white: #ffffff;
 $text-color: #333333;
 
 .hero {
-	background-image: url('/images/hero/hero-1.jpg');
-	background-position: center center;
-	height: 800px;
-	margin-bottom: 48px;
+	background-image: url('/images/hero-banner.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left;
+	width: 100%;
+	min-height: 80vh;
+	padding-block: var(--section-padding);
+	display: flex;
+	align-items: center;
 }
-.heroText {
-	h6 {
-		color: $primary-color;
-		font-size: 14px;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		margin-bottom: 28px;
-		position: relative;
-		top: 100px;
-		transition: all 0.3s;
+.heroContainer {
+	width: 100%;
+}
+.heroSubtitle {
+	font-family: var(--font-family);
+	color: var(--color-black);
+	font-size: var(--fs-4, 24px);
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.heroTitle {
+	font-family: var(--font-family);
+	font-size: var(--fs-1, 36px);
+	line-height: 1;
+	color: var(--color-black);
+	font-weight: 600;
+	margin-bottom: 35px;
+	max-width: 12ch;
+}
+.heroBtn {
+	font-family: var(--font-family);
+	font-weight: 600;
+	background: var(--background, var(--color-black));
+	color: var(--color, var(--color-white));
+	height: var(--height, 60px);
+	padding-inline: 50px;
+	border: 1px solid var(--border-color, var(--color-black));
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.25s ease;
+	&:is(:hover, :focus) {
+		--background: var(--color-white);
+		--color: var(--color-black);
+		--border-color: var(--color-black);
 	}
-	h2 {
-		color: $heading-color;
-		font-size: 48px;
-		font-weight: 700;
-		line-height: 58px;
-		margin-bottom: 30px;
-		position: relative;
-		top: 100px;
-		transition: all 0.6s;
+	&:is(:hover) {
+		cursor: pointer;
 	}
-	p {
-		font-size: 16px;
-		line-height: 28px;
-		margin-bottom: 35px;
-		position: relative;
-		top: 100px;
-		transition: all 0.9s;
-	}
-	.primaryBtn {
-		position: relative;
-		top: 100px;
-		transition: all 1.1s;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 13px;
-		font-weight: 700;
-		text-transform: uppercase;
-		padding: 14px 30px;
-		color: $white;
-		background: $primary-color;
-		letter-spacing: 4px;
-		span {
-			font-size: 20px;
-			position: relative;
-			top: 4px;
-			font-weight: 700;
-		}
+	&:is(:focus) {
+		cursor: focus;
 	}
 }
+
+// .hero {
+// 	background-image: url('/images/hero/hero-1.jpg');
+// 	background-position: center center;
+// 	height: 800px;
+// 	margin-bottom: 48px;
+// }
+// .heroText {
+// 	h6 {
+// 		color: $primary-color;
+// 		font-size: 14px;
+// 		font-weight: 700;
+// 		text-transform: uppercase;
+// 		letter-spacing: 2px;
+// 		margin-bottom: 28px;
+// 		position: relative;
+// 		top: 100px;
+// 		transition: all 0.3s;
+// 	}
+// 	h2 {
+// 		color: $heading-color;
+// 		font-size: 48px;
+// 		font-weight: 700;
+// 		line-height: 58px;
+// 		margin-bottom: 30px;
+// 		position: relative;
+// 		top: 100px;
+// 		transition: all 0.6s;
+// 	}
+// 	p {
+// 		font-size: 16px;
+// 		line-height: 28px;
+// 		margin-bottom: 35px;
+// 		position: relative;
+// 		top: 100px;
+// 		transition: all 0.9s;
+// 	}
+// 	.primaryBtn {
+// 		position: relative;
+// 		top: 100px;
+// 		transition: all 1.1s;
+// 		text-decoration: none;
+// 		display: inline-block;
+// 		font-size: 13px;
+// 		font-weight: 700;
+// 		text-transform: uppercase;
+// 		padding: 14px 30px;
+// 		color: $white;
+// 		background: $primary-color;
+// 		letter-spacing: 4px;
+// 		span {
+// 			font-size: 20px;
+// 			position: relative;
+// 			top: 4px;
+// 			font-weight: 700;
+// 		}
+// 	}
+// }

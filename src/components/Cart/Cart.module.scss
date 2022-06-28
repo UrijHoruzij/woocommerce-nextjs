@@ -4,7 +4,8 @@ $accent-color: #e53637;
 $white: #ffffff;
 $text-color: #333333;
 .cartTable {
-	margin-bottom: 30px;
+	margin-top: 48px;
+	margin-bottom: 48px;
 	table {
 		width: 100%;
 		thead {
@@ -90,6 +91,8 @@ $text-color: #333333;
 	}
 }
 .cartTotal {
+	margin-top: 48px;
+	margin-bottom: 48px;
 	background: #f3f2ee;
 	padding: 35px 40px 40px;
 	h4 {
@@ -121,10 +124,10 @@ $text-color: #333333;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	background: $accent-color;
+	background: var(--color-accent);
 	border: none;
 	padding: 8px;
-	color: $white;
+	color: var(--color-white);
 	font-size: 16px;
 	font-weight: 500;
 	text-transform: uppercase;

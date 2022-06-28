@@ -1,0 +1,57 @@
+@font-face {
+	font-family: 'PT Sans';
+	src: local('PT Sans'), local('PTSans-Regular'), url('/fonts/ptsans.woff2') format('woff2'),
+		url('/fonts/ptsans.woff') format('woff'), url('/fonts/ptsans.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PT Sans';
+	src: local('PT Sans Bold'), local('PTSans-Bold'), url('/fonts/ptsansbold.woff2') format('woff2'),
+		url('/fonts/ptsansbold.woff') format('woff'), url('/fonts/ptsansbold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+:root {
+	--font-family: 'PT Sans', sans-serif;
+
+	--color-white: #ffffff;
+	--color-black: #111111;
+	--color-grey: #707070;
+	--color-white-bg: #f5f5f5;
+	--color-heading: #111111;
+	--color-accent: #80c2bd;
+	--color-text: #333333;
+
+	--fs-1: 2.5rem;
+	--fs-2: 1.75rem;
+	--fs-3: 1.625rem;
+	--fs-4: 1.5rem;
+	--fs-5: 1.375rem;
+	--fs-6: 1.25rem;
+	--fs-7: 1.125rem;
+	--fs-8: 0.938rem;
+	--fs-9: 0.875rem;
+	--fs-10: 0.813rem;
+
+	--transition: all 0.3s ease-in-out;
+
+	--middle-blue-green: hsl(176, 35%, 63%);
+	--sonic-silver: #707070;
+	--eerie-black: hsl(0, 0%, 9%);
+	--ocean-green: hsl(148, 45%, 58%);
+	--candy-pink: hsl(356, 65%, 63%);
+	--cultured: #f5f5f5;
+	--white: hsl(0, 0%, 100%);
+	--black: hsl(0, 0%, 0%);
+
+	--section-padding: 60px;
+}

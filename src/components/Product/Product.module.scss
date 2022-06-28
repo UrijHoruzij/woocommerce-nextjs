@@ -1,0 +1,104 @@
+.product {
+	margin-top: 48px;
+	margin-bottom: 48px;
+	&__preview {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		aspect-ratio: 4/3;
+		margin-bottom: 4px;
+	}
+	&__gallery {
+		display: flex;
+		align-items: center;
+		&:last-child {
+			margin: 0;
+		}
+	}
+	&__galleryItem {
+		width: 25%;
+		aspect-ratio: 1;
+		position: relative;
+		margin-right: 4px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	&__name {
+		font-family: var(--font-family);
+		font-size: var(--fs-5);
+		color: var(--color-black);
+		font-weight: 600;
+		margin-top: 16px;
+	}
+	&__price {
+		font-family: var(--font-family);
+		font-size: var(--fs-6);
+		color: var(--color-accent);
+		font-weight: 600;
+		margin-top: 16px;
+	}
+	&__description {
+		font-family: var(--font-family);
+		font-size: var(--fs-7);
+		color: var(--color-grey);
+		font-weight: 500;
+		margin-top: 8px;
+	}
+	&__metaTitle {
+		font-family: var(--font-family);
+		font-size: var(--fs-9);
+		color: var(--color-grey);
+		font-weight: 600;
+		margin-right: 4px;
+	}
+	&__categories {
+		margin-top: 16px;
+		display: flex;
+		align-items: center;
+		font-family: var(--font-family);
+		font-size: var(--fs-9);
+		color: var(--color-grey);
+		font-weight: 500;
+	}
+	&__cart {
+		display: flex;
+		align-items: center;
+		margin-top: 20px;
+	}
+	&__count {
+		margin-right: 8px;
+		padding-top: 16px;
+		padding-bottom: 16px;
+		padding-left: 24px;
+		outline-color: var(--color-accent);
+		border: 1px solid var(--color-grey);
+		border-radius: 4px;
+		font-family: var(--font-family);
+		font-size: var(--fs-7);
+		font-weight: 500;
+		color: var(--color-black);
+	}
+	&__btn {
+		border: 1px solid var(--color-accent);
+		padding: 16px 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--color-accent);
+		color: var(--color-white);
+		transition: var(--transition);
+		font-family: var(--font-family);
+		font-size: var(--fs-7);
+		font-weight: 500;
+		border-radius: 4px;
+		&:hover {
+			cursor: pointer;
+		}
+		&:hover,
+		&:focus {
+			background: var(--color-white);
+			color: var(--color-accent);
+		}
+	}
+}

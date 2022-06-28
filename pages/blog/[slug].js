@@ -2,12 +2,13 @@ import axios from 'axios';
 import Image from 'next/image';
 import { Layout } from '../../src/components';
 import { SITE_INFO, MENU, LOGO, POSTS, PAGES } from '../../src/utils/endpoints';
+import woocommerce from '../src/utils/woocommerce';
 import loader from '../../src/utils/loader';
 
 const Product = (props) => {
-	const { title, description, menu, content, logo } = props;
+	const { title, description, menu, content, logo, categoriesFooter } = props;
 	return (
-		<Layout logo={logo} menu={menu} title={title} description={description}>
+		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
 			<div className="container">{content.title.rendered}</div>
 			<date>{content.date}</date>
 			<div>{content.rendered}</div>
@@ -25,6 +26,8 @@ export async function getStaticProps(context) {
 	const menu = await axios.get(MENU);
 	const info = await axios.get(SITE_INFO);
 	const post = await axios.get(POSTS, { slug: slug });
+	const categoriesFooter = await woocommerce.get('products/categories', { per_page: 6 });
+
 	let content = null;
 	if (post.data.length > 0) {
 		content = post.data[0];
@@ -40,6 +43,7 @@ export async function getStaticProps(context) {
 			title: info.data.name,
 			description: info.data.description,
 			content: content,
+			categoriesFooter: categoriesFooter.data,
 		},
 		revalidate: 1,
 	};

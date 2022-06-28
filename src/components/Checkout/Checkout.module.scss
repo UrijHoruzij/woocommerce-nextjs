@@ -4,7 +4,7 @@ $white: #ffffff;
 $text-color: #333333;
 
 .checkoutTitle {
-	color: $heading-color;
+	color: var(--color-black);
 	font-weight: 700;
 	text-transform: uppercase;
 	border-bottom: 1px solid #e1e1e1;
@@ -15,10 +15,10 @@ $text-color: #333333;
 .checkoutInput {
 	margin-bottom: 6px;
 	p {
-		color: $heading-color;
+		color: var(--color-black);
 		margin-bottom: 12px;
 		span {
-			color: $accent-color;
+			color: var(--color-accent);
 		}
 	}
 	input {
@@ -46,7 +46,7 @@ $text-color: #333333;
 }
 .orderTitle {
 	margin: 0;
-	color: $heading-color;
+	color: var(--color-black);
 	font-weight: 700;
 	text-transform: uppercase;
 	border-bottom: 1px solid #d7d7d7;
@@ -55,7 +55,7 @@ $text-color: #333333;
 }
 .checkoutOrderProducts {
 	font-size: 16px;
-	color: $heading-color;
+	color: var(--color-black);
 	overflow: hidden;
 	margin-bottom: 18px;
 	font-weight: 600;
@@ -79,7 +79,7 @@ $text-color: #333333;
 			margin-bottom: 0;
 		}
 		span {
-			color: $heading-color;
+			color: var(--color-black);
 			font-weight: 400;
 			float: right;
 		}
@@ -89,10 +89,10 @@ $text-color: #333333;
 	border-top: 1px solid #d7d7d7;
 	padding: 16px 0;
 	font-weight: 700;
-	color: $heading-color;
+	color: var(--color-black);
 }
 .shippingPrice {
-	color: $heading-color;
+	color: var(--color-black);
 	font-weight: 700;
 	float: right;
 }
@@ -102,16 +102,16 @@ $text-color: #333333;
 	padding: 16px 0;
 	margin-bottom: 24px;
 	font-weight: 700;
-	color: $heading-color;
+	color: var(--color-black);
 }
 .total {
-	color: $accent-color;
+	color: var(--color-accent);
 	font-weight: 700;
 	float: right;
 }
 .placeBtn {
 	width: 100%;
-	background: $accent-color;
+	background: var(--color-accent);
 	border: none;
 	padding: 8px;
 	color: $white;
@@ -125,6 +125,6 @@ $text-color: #333333;
 	width: 4px;
 	height: 4px;
 	border-radius: 50%;
-	background: $white;
+	background: var(--color-white);
 	margin: 1px;
 }

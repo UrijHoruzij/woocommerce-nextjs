@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { SITE_INFO, MENU, POSTS, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
-import { Layout, Categories, Products, LatestPosts, Hero, Photos } from '../src/components';
+import { Layout, Categories, Products, LatestPosts, Hero, Service } from '../src/components';
 
 const Home = (props) => {
-	const { title, description, menu, products, categories, posts, logo } = props;
+	const { title, description, menu, products, categories, posts, logo, categoriesFooter } = props;
 	return (
-		<Layout logo={logo} menu={menu} title={title} description={description}>
+		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
 			<Hero />
+			<Service />
 			<Categories categories={categories}></Categories>
 			<Products products={products} />
-			<Photos/>
 			<LatestPosts posts={posts} />
 		</Layout>
 	);
@@ -24,6 +24,8 @@ export async function getStaticProps() {
 	const posts = await axios.get(POSTS, { per_page: 3 });
 	const products = await woocommerce.get('products', { per_page: 8 });
 	const categories = await woocommerce.get('products/categories', { per_page: 3 });
+	const categoriesFooter = await woocommerce.get('products/categories', { per_page: 6 });
+
 	return {
 		props: {
 			logo: logo.data,
@@ -33,6 +35,7 @@ export async function getStaticProps() {
 			products: products.data,
 			categories: categories.data,
 			posts: posts.data,
+			categoriesFooter: categoriesFooter.data,
 		},
 		revalidate: 1,
 	};

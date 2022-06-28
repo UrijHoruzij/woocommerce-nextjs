@@ -20,6 +20,15 @@ export const changeCart = (product, cart, setCart) => {
 	});
 	setCart(newCart);
 };
+export const checkExistProduct = (product, cart) => {
+	let flag = false;
+	cart.map((cartProduct) => {
+		if (cartProduct.id === product.id) {
+			flag = true;
+		}
+	});
+	return flag;
+};
 export const removeFromCart = (product, cart, setCart) => {
 	let newCart = cart.filter((cartProduct) => {
 		return cartProduct.id !== product.id;

@@ -15,7 +15,7 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 		<>
 			<Head>
 				<title>{title || 'Next WooCommerce'}</title>
-				<link rel="icon" href={favicon || '/favicon.ico'} />
+				<link rel="icon" href={favicon || '/favicon.svg'} />
 			</Head>
 			<header className={styles.header}>
 				<div className="container">
@@ -25,9 +25,16 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 								<Link href="/">
 									<a>
 										{logo ? (
-											<Image loader={loader} unoptimized={true} width={196} height={23} src={logo} alt={title} />
+											<Image loader={loader} unoptimized={true} width={100} height={24} src={logo} alt={title} />
 										) : (
-											title
+											<Image
+												loader={loader}
+												unoptimized={true}
+												width={130}
+												height={31}
+												src="/images/logo.svg"
+												alt={title}
+											/>
 										)}
 									</a>
 								</Link>
@@ -37,7 +44,7 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 							<nav className={styles.menu}>
 								<ul>
 									{menu.map((item) => (
-										<li key={item.ID} className={styles.menuItem}>
+										<li key={item.ID} className={styles.menu__item}>
 											<Link href={replaceUrlMenu(item.url)}>
 												<a>{item.title}</a>
 											</Link>
@@ -49,19 +56,12 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 						<div className="col-lg-2 col-md-2">
 							<div className={styles.cart}>
 								<Link href="/cart">
-									<a className={styles.cartLink}>
-										<div className={styles.cartImage}>
-											<Image
-												className={styles.image}
-												loader={loader}
-												unoptimized={true}
-												layout="fill"
-												src="/images/icon/cart.png"
-												alt="Cart"
-											/>
-											{cart && cart.length > 0 ? <span className={styles.cartCount}>{cart.length}</span> : null}
+									<a className={styles.cart__link}>
+										<div className={styles.cart__image}>
+											<Image loader={loader} unoptimized={true} layout="fill" src="/images/icon/cart.png" alt="Cart" />
+											{cart && cart.length > 0 ? <span className={styles.cart__count}>{cart.length}</span> : null}
 										</div>
-										<div className={styles.price}>${total}</div>
+										<div className={styles.cart__price}>${total}</div>
 									</a>
 								</Link>
 							</div>

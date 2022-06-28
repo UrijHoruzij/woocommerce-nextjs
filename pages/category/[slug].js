@@ -4,9 +4,9 @@ import woocommerce from '../../src/utils/woocommerce';
 import { SITE_INFO, MENU, LOGO } from '../../src/utils/endpoints';
 
 const Category = (props) => {
-	const { title, description, menu, category, products, logo } = props;
+	const { title, description, menu, category, products, logo, categoriesFooter } = props;
 	return (
-		<Layout logo={logo} menu={menu} title={title} description={description}>
+		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
 			<div className="container">
 				<h3 className="">{category.name}</h3>
 			</div>
@@ -26,6 +26,8 @@ export async function getStaticProps(context) {
 	const info = await axios.get(SITE_INFO);
 	const category = await woocommerce.get('products/categories', { slug: slug });
 	const products = await woocommerce.get('products', { category: `${category.data[0].id}` });
+	const categoriesFooter = await woocommerce.get('products/categories', { per_page: 6 });
+
 	return {
 		props: {
 			logo: logo.data,
@@ -34,6 +36,7 @@ export async function getStaticProps(context) {
 			description: info.data.description,
 			category: category.data[0],
 			products: products.data,
+			categoriesFooter: categoriesFooter.data,
 		},
 		revalidate: 1,
 	};

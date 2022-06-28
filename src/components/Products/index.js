@@ -9,32 +9,51 @@ import { CartContext } from '../';
 const Products = (props) => {
 	const { products } = props;
 	const [cart, setCart] = useContext(CartContext);
+	const changePercent = (price, regularPrice) => {
+		if (regularPrice !== '' && regularPrice !== price) {
+			const percent = 100 - (parseFloat(price) / parseFloat(regularPrice)) * 100;
+			return `-${percent.toFixed()}%`;
+		}
+	};
 	return (
 		<section className={styles.product}>
 			<div className="container">
+				<h2 className={styles.sectionTitle}>Products of the week</h2>
 				<div className="row">
 					{products.map((product) => (
-						<div key={product.id} className="col-lg-3 col-md-6 col-sm-6">
-							<div className={styles.productItem}>
-								<div className={styles.productImage}>
-									<Image
-										className={styles.image}
-										loader={loader}
-										unoptimized={true}
-										src={product.images[0].src}
-										layout="fill"
-										alt={product.images[0].alt}
-									/>
-									<span className={styles.label}>New</span>
-								</div>
-								<div className={styles.text}>
+						<div key={product.id} className="col-lg-3 col-md-6">
+							<div className={styles.card}>
+								<figure className={styles.card__image}>
 									<Link href={`/product/${product.slug}`}>
-										<a className={styles.name}>{product.name}</a>
+										<a>
+											<Image
+												loader={loader}
+												unoptimized={true}
+												src={product.images[0].src}
+												layout="fill"
+												alt={product.images[0].alt}
+											/>
+										</a>
 									</Link>
-									<h4 className={styles.price}>${product.price}</h4>
-									<button className={styles.btn} onClick={() => addToCart({ quantity: 1, ...product }, cart, setCart)}>
-										Add To Cart
-									</button>
+									{product.regular_price !== '' && product.regular_price != product.price ? (
+										<div className={styles.card__badge}>{changePercent(product.price, product.regular_price)}</div>
+									) : null}
+									<div className={styles.card__actions}>
+										<button
+											onClick={() => addToCart({ quantity: 1, ...product }, cart, setCart)}
+											className={styles.card__actionBtn}>
+											Add to Cart
+										</button>
+									</div>
+								</figure>
+								<div className={styles.card__content}>
+									<Link href={`/product/${product.slug}`}>
+										<a className={styles.card__title}>{product.name}</a>
+									</Link>
+									<div className={styles.card__price}>
+										<span>${product.price}</span>
+										{product.regular_price !== '' ? <span>${product.regular_price}</span> : null}
+									</div>
 								</div>
 							</div>
 						</div>

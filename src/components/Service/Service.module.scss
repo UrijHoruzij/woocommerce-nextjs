@@ -1,0 +1,29 @@
+.service {
+	padding-top: 48px;
+	padding-bottom: 48px;
+	&__icon {
+		position: relative;
+		width: 44px;
+		height: 44px;
+	}
+	&__card {
+		display: flex;
+		align-items: center;
+	}
+	&__content {
+		margin-left: 16px;
+	}
+	&__title {
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 600;
+	}
+	&__text {
+		margin-top: 4px;
+		font-family: var(--font-family);
+		color: var(--color-grey);
+		font-size: var(--fs-7);
+		font-weight: 500;
+	}
+}

@@ -1,5 +1,5 @@
 import 'normalize.css';
-import '../src/styles/Global.module.css';
+import '../src/styles/Global.scss';
 import '../src/styles/bootstrap-grid.min.css';
 
 function MyApp({ Component, pageProps }) {

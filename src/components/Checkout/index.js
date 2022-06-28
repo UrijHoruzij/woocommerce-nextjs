@@ -1,13 +1,18 @@
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
-import { CartContext, TotalContext } from '../';
+import { CartContext, TotalContext, DiscountContext } from '../';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import styles from './Checkout.module.scss';
 
 const Checkout = (props) => {
 	const router = useRouter();
 	const [cart, setCart] = useContext(CartContext);
+	const [discount, setDiscount] = useContext(DiscountContext);
 	const [total, setTotal] = useContext(TotalContext);
+	const changeTotal = (total) => {
+		if (discount.value) return total - (total * discount.value) / 100;
+		return total;
+	};
 	const processOrder = async (e) => {
 		e.preventDefault();
 		const items = [];
@@ -51,6 +56,11 @@ const Checkout = (props) => {
 					total: '10.00',
 				},
 			],
+			coupon_lines: [
+				{
+					code: discount.code,
+				},
+			],
 		};
 		const woocommerce = new WooCommerceRestApi({
 			url: process.env.NEXT_PUBLIC_WORDPRESS_URL_SSL,
@@ -65,6 +75,7 @@ const Checkout = (props) => {
 		});
 		await woocommerce.post('orders', data);
 		setCart([]);
+		setDiscount({});
 		setTotal(0);
 		router.push('/thank-you');
 	};
@@ -159,11 +170,12 @@ const Checkout = (props) => {
 											</li>
 										))}
 									</ul>
+									{discount.value > 0 ? <div className="checkout__discount">{discount.value}%</div> : null}
 									<div className={styles.checkoutShipping}>
 										Shipping <span className={styles.shippingPrice}>$10</span>
 									</div>
 									<div className={styles.checkoutTotalAll}>
-										Total <span className={styles.total}>${total + 10}</span>
+										Total <span className={styles.total}>${changeTotal(total + 10)}</span>
 									</div>
 									<button type="submit" className={styles.placeBtn}>
 										PLACE ORDER
