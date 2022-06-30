@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SITE_INFO, MENU, POSTS, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
-import { Layout, Categories, Products, LatestPosts, Hero, Service } from '../src/components';
+import { Layout, Categories, Products, LatestPosts, Hero, Service, Newsletter } from '../src/components';
 
 const Home = (props) => {
 	const { title, description, menu, products, categories, posts, logo, categoriesFooter } = props;
@@ -10,8 +10,9 @@ const Home = (props) => {
 			<Hero />
 			<Service />
 			<Categories categories={categories}></Categories>
-			<Products products={products} />
+			<Products products={products} title="Products of the week" />
 			<LatestPosts posts={posts} />
+			<Newsletter />
 		</Layout>
 	);
 };

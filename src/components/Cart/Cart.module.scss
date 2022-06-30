@@ -1,137 +1,218 @@
-$primary-color: #111111;
-$heading-color: #111111;
-$accent-color: #e53637;
-$white: #ffffff;
-$text-color: #333333;
-.cartTable {
+.cart {
 	margin-top: 48px;
 	margin-bottom: 48px;
-	table {
-		width: 100%;
-		thead {
-			border-bottom: 1px solid #f2f2f2;
-			tr {
-				th {
-					color: $heading-color;
-					font-size: 16px;
-					font-weight: 700;
-					text-transform: uppercase;
-					padding-bottom: 25px;
+	&__table {
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			thead {
+				border-bottom: 1px solid #dddddd;
+				tr {
+					th {
+						font-family: var(--font-family);
+						color: var(--color-black);
+						font-size: var(--fs-6);
+						font-weight: 700;
+						padding-bottom: 24px;
+					}
 				}
 			}
-		}
-		tbody {
-			tr {
-				border-bottom: 1px solid #f2f2f2;
-				td {
-					padding-bottom: 30px;
-					padding-top: 30px;
+			tbody {
+				tr {
+					border-bottom: 1px solid #dddddd;
+					td {
+						padding-bottom: 28px;
+						padding-top: 28px;
+					}
 				}
 			}
 		}
 	}
-}
-.cartItem {
-	width: 400px;
-	display: flex;
-	align-items: center;
-}
-.image {
-	object-fit: cover;
-}
-.cartItemImage {
-	width: 90px;
-	height: 90px;
-	position: relative;
-}
-.cartPrice {
-	color: #111111;
-	font-size: 18px;
-	font-weight: 700;
-	width: 140px;
-}
-.cartItemText {
-	overflow: hidden;
-	padding-top: 21px;
-	margin-left: 24px;
-	h6 {
-		margin: 0;
-		color: $heading-color;
-		font-size: 15px;
+	&__item {
+		display: flex;
+		align-items: center;
+	}
+	&__image {
+		width: 90px;
+		height: 90px;
+		position: relative;
+		img {
+			object-fit: cover;
+		}
+	}
+
+	&__close {
+		height: 40px;
+		width: 40px;
+		cursor: pointer;
+		position: relative;
+		&::before,
+		&::after {
+			display: block;
+			content: '';
+			width: 24px;
+			height: 2px;
+			border-radius: 4px;
+			background-color: var(--color-black);
+			position: absolute;
+			top: 50%;
+			left: 0;
+		}
+		&::before {
+			transform: rotate(45deg);
+		}
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+	&__content {
+		overflow: hidden;
+		margin-left: 24px;
+	}
+	&__name {
+		font-family: var(--font-family);
+		color: var(--color-accent);
+		font-size: var(--fs-7);
 		font-weight: 600;
 		margin-bottom: 10px;
 	}
-	h5 {
-		color: #0d0d0d;
-		font-weight: 700;
+	&__price {
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-8);
+		font-weight: 600;
 	}
-}
-.cartClose {
-	height: 40px;
-	width: 40px;
-	cursor: pointer;
-	position: relative;
-	&::before,
-	&::after {
-		display: block;
-		content: '';
-		width: 24px;
-		height: 2px;
+	&__quantity {
+	}
+	&__quantityInput {
+		width: 100%;
+		padding-left: 12px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		outline-color: var(--color-accent);
+		border: 1px solid var(--color-grey);
 		border-radius: 4px;
-		background-color: #111111;
-		position: absolute;
-		top: 50%;
-		left: 0;
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 500;
 	}
-	&::before {
-		transform: rotate(45deg);
+	&__productPrice {
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 600;
+		text-align: center;
+		padding-left: 12px;
+		padding-right: 12px;
 	}
-	&::after {
-		transform: rotate(-45deg);
+	&__title {
+		font-family: var(--font-family);
+		font-size: var(--fs-6);
+		font-weight: 600;
+		color: var(--color-black);
+		padding-bottom: 24px;
 	}
-}
-.cartTotal {
-	margin-top: 48px;
-	margin-bottom: 48px;
-	background: #f3f2ee;
-	padding: 35px 40px 40px;
-	h4 {
-		color: $heading-color;
-		text-transform: uppercase;
-		margin-bottom: 12px;
-	}
-
-	ul {
+	&__coupone {
 		margin-bottom: 24px;
-		padding: 0;
-		list-style-type: none;
-		li {
-			list-style: none;
-			font-size: 16px;
-			color: #444444;
-			line-height: 40px;
-			overflow: hidden;
-			span {
-				font-weight: 700;
-				color: $primary-color;
-				float: right;
-			}
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	&__couponeContent {
+		display: flex;
+	}
+	&__couponeInput {
+		padding-left: 12px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		outline-color: var(--color-accent);
+		border: 1px solid var(--color-grey);
+		border-radius: 4px;
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 500;
+	}
+	&__couponeBtn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--color-accent);
+		border: 1px solid var(--color-accent);
+		padding: 8px;
+		font-family: var(--font-family);
+		color: var(--color-white);
+		font-size: var(--fs-6);
+		font-weight: 500;
+		border-radius: 4px;
+		text-decoration: none;
+		transition: var(--transition);
+		&:hover {
+			cursor: pointer;
+		}
+		&:hover,
+		&:focus {
+			background: var(--color-white);
+			color: var(--color-accent);
 		}
 	}
-}
-.checkoutBtn {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	background: var(--color-accent);
-	border: none;
-	padding: 8px;
-	color: var(--color-white);
-	font-size: 16px;
-	font-weight: 500;
-	text-transform: uppercase;
-	border-radius: 4px;
-	cursor: pointer;
-	text-decoration: none;
+	&__discount {
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 600;
+		margin-bottom: 12px;
+	}
+	&__total {
+		background: #f3f2ee;
+		padding: 28px 40px 40px;
+		margin-bottom: 24px;
+	}
+	&__totalPrice {
+		display: flex;
+		margin-bottom: 20px;
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 600;
+	}
+	&__totalSumma {
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 500;
+		text-decoration: line-through;
+		margin-left: 4px;
+	}
+	&__totalDiscount {
+		font-family: var(--font-family);
+		color: var(--color-accent);
+		font-size: var(--fs-7);
+		font-weight: 600;
+		margin-left: 8px;
+	}
+	&__btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background: var(--color-accent);
+		border: 1px solid var(--color-accent);
+		padding: 8px;
+		font-family: var(--font-family);
+		color: var(--color-white);
+		font-size: var(--fs-6);
+		font-weight: 500;
+		border-radius: 4px;
+		text-decoration: none;
+		transition: var(--transition);
+		&:hover {
+			cursor: pointer;
+		}
+		&:hover,
+		&:focus {
+			background: var(--color-white);
+			color: var(--color-accent);
+		}
+	}
 }

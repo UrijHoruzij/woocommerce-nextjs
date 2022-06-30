@@ -2,7 +2,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { Layout } from '../../src/components';
 import { SITE_INFO, MENU, LOGO, POSTS, PAGES } from '../../src/utils/endpoints';
-import woocommerce from '../src/utils/woocommerce';
+import woocommerce from '../../src/utils/woocommerce';
 import loader from '../../src/utils/loader';
 
 const Product = (props) => {

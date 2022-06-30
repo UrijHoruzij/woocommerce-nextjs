@@ -128,6 +128,30 @@ function get_logo() {
 	$custom_logo__url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ); 
     return $custom_logo__url[0];
 }
+function create_city_from_data($req) {
+        $response['name'] = $req['name'];
+        $response['population'] = $req['population'];
+
+        $res = new WP_REST_Response($response);
+        $res->set_status(200);
+
+        return ['req' => $res];
+    }
+function add_subsciber_newsletter($req){
+	if (class_exists(\MailPoet\API\API::class)) {
+  		$mailpoet_api = \MailPoet\API\API::MP('v1');
+		$subscriber = array(
+			'email ' => $req['email'],
+		);
+		try {
+			$mailpoet_api->addSubscriber($subscriber);
+		} catch (\Exception $e) {
+			$error_message = $e->getMessage();
+		}
+		$res = new WP_REST_Response();
+        $res->set_status(200);
+	}	
+}
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', 'menu', array(
         'methods' => 'GET',
@@ -136,6 +160,10 @@ add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', 'logo', array(
         'methods' => 'GET',
         'callback' => 'get_logo',
+    ) );
+	register_rest_route( 'wp/v2', 'newsletter', array(
+        'methods' => 'POST',
+        'callback' => 'add_subsciber_newsletter',
     ) );
 } );
 

@@ -1,0 +1,40 @@
+.newsletter {
+	padding-top: 48px;
+	padding-bottom: 48px;
+	&__card {
+		background-image: url('/images/newsletter-bg.png');
+		background-color: var(--color-white-bg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: left;
+		padding: 80px 15px;
+		text-align: center;
+	}
+	&__title {
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-3);
+		font-weight: 600;
+		line-height: 1.2;
+		margin-bottom: 30px;
+	}
+	&__text {
+		margin-bottom: 30px;
+	}
+	&__inputWrapper {
+		position: relative;
+		margin-bottom: 20px;
+	}
+	&__input {
+		background: var(--color-white);
+		height: 60px;
+		padding-inline: 50px 20px;
+		border-radius: 6px;
+	}
+	&__btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+	}
+}

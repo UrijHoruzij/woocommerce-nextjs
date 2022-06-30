@@ -7,7 +7,7 @@ const Page404 = (props) => {
 	const { title, description, menu, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			404
+			<div className="container">404</div>
 		</Layout>
 	);
 };

@@ -7,7 +7,7 @@ const ProductPage = (props) => {
 	const { title, description, menu, product, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<Product product={product} />
+			<Product product={product} title="Products" />
 		</Layout>
 	);
 };
@@ -23,8 +23,6 @@ export async function getStaticProps(context) {
 	const info = await axios.get(SITE_INFO);
 	const product = await woocommerce.get('products', { slug: slug });
 	const categoriesFooter = await woocommerce.get('products/categories', { per_page: 6 });
-
-	// console.log(product);
 	return {
 		props: {
 			logo: logo.data,
@@ -39,7 +37,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-	const products = await woocommerce.get(`products`);
+	const products = await woocommerce.get(`products`, { per_page: 100 });
 	const pathsData = [];
 	products.data.map((product) => {
 		pathsData.push({ params: { slug: product.slug } });

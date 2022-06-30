@@ -7,7 +7,7 @@ import { addToCart } from '../../utils/cart';
 import { CartContext } from '../';
 
 const Products = (props) => {
-	const { products } = props;
+	const { products, title } = props;
 	const [cart, setCart] = useContext(CartContext);
 	const changePercent = (price, regularPrice) => {
 		if (regularPrice !== '' && regularPrice !== price) {
@@ -18,7 +18,7 @@ const Products = (props) => {
 	return (
 		<section className={styles.product}>
 			<div className="container">
-				<h2 className={styles.sectionTitle}>Products of the week</h2>
+				<h2 className={styles.sectionTitle}>{title}</h2>
 				<div className="row">
 					{products.map((product) => (
 						<div key={product.id} className="col-lg-3 col-md-6">

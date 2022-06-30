@@ -7,7 +7,7 @@ const Shop = (props) => {
 	const { title, description, menu, products, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<Products products={products} />
+			<Products products={products} title="Products" />
 		</Layout>
 	);
 };

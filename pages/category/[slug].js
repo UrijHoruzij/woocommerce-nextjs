@@ -7,10 +7,7 @@ const Category = (props) => {
 	const { title, description, menu, category, products, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<div className="container">
-				<h3 className="">{category.name}</h3>
-			</div>
-			<Products products={products} />
+			<Products products={products} title={category.name} />
 		</Layout>
 	);
 };

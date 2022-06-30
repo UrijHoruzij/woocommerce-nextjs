@@ -13,7 +13,7 @@ const CartProvider = (props) => {
 			cartData.map((product) => {
 				tempTotal += parseFloat(product.price * product.quantity);
 			});
-			setTotal(tempTotal);
+			setTotal(tempTotal.toFixed(2));
 			setCart(cartData);
 		} else {
 			localStorage.setItem('next-cart', JSON.stringify(cart));
@@ -25,7 +25,7 @@ const CartProvider = (props) => {
 		cart.map((product) => {
 			tempTotal += parseFloat(product.price * product.quantity);
 		});
-		setTotal(tempTotal);
+		setTotal(tempTotal.toFixed(2));
 	}, [cart]);
 	return (
 		<CartContext.Provider value={[cart, setCart]}>
