@@ -19,7 +19,11 @@
 		margin-bottom: 30px;
 	}
 	&__text {
-		margin-bottom: 30px;
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 500;
+		margin-bottom: 28px;
 	}
 	&__inputWrapper {
 		position: relative;

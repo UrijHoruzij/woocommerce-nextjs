@@ -1,0 +1,14 @@
+.auth {
+	width: 600px;
+	height: 400px;
+	margin: 0 auto;
+	&__card {
+		display: flex;
+		align-items: center;
+	}
+	&__image {
+		width: 50%;
+		height: 250px;
+		position: relative;
+	}
+}

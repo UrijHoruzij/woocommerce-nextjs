@@ -128,29 +128,85 @@ function get_logo() {
 	$custom_logo__url = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ); 
     return $custom_logo__url[0];
 }
-function create_city_from_data($req) {
-        $response['name'] = $req['name'];
-        $response['population'] = $req['population'];
-
-        $res = new WP_REST_Response($response);
-        $res->set_status(200);
-
-        return ['req' => $res];
-    }
 function add_subsciber_newsletter($req){
 	if (class_exists(\MailPoet\API\API::class)) {
   		$mailpoet_api = \MailPoet\API\API::MP('v1');
-		$subscriber = array(
-			'email ' => $req['email'],
-		);
+		$email = sanitize_text_field($req['email']);
+  		$error = new WP_Error();
+		$subscriber = array('email ' => $req['email']);
 		try {
 			$mailpoet_api->addSubscriber($subscriber);
 		} catch (\Exception $e) {
-			$error_message = $e->getMessage();
+			$error->add(500, $e->getMessage(), array('status' => 500));
+    		return $error;
 		}
-		$res = new WP_REST_Response();
-        $res->set_status(200);
+		return new WP_REST_Response();
 	}	
+}
+function signup($req) {
+  $response = array();
+  $username = sanitize_text_field($req['username']);
+  $email = sanitize_text_field($req['email']);
+  $password = sanitize_text_field($req['password']);
+  $error = new WP_Error();
+  if (empty($username)) {
+    $error->add(400, __("Username field 'username' is required.", 'wp-rest-user'), array('status' => 400));
+    return $error;
+  }
+  if (empty($email)) {
+    $error->add(401, __("Email field 'email' is required.", 'wp-rest-user'), array('status' => 400));
+    return $error;
+  }
+  if (empty($password)) {
+    $error->add(404, __("Password field 'password' is required.", 'wp-rest-user'), array('status' => 400));
+    return $error;
+  }
+  $user_id = username_exists($username);
+  if (!$user_id && email_exists($email) == false) {
+    $user_id = wp_create_user($username, $password, $email);
+    if (!is_wp_error($user_id)) {
+      $user = get_user_by('id', $user_id);
+      $user->set_role('subscriber');
+      if (class_exists('WooCommerce')) {
+        $user->set_role('customer');
+      }
+      $response['message'] = __("The user is created.", "wp-rest-user");
+    } else {
+      return $user_id;
+    }
+  } else {
+    $error->add(400, __("The user exists.", 'wp-rest-user'), array('status' => 400));
+    return $error;
+  }
+  return new WP_REST_Response($response);
+}
+function signin($req){
+	$cred = array();
+  	$error = new WP_Error();
+	$username = sanitize_text_field($req['username']);
+  	$password = sanitize_text_field($req['password']);
+	if (empty($username)) {
+		$error->add(400, __("Username field 'username' is required.", 'wp-rest-user'), array('status' => 400));
+		return $error;
+	}
+	if (empty($password)) {
+		$error->add(404, __("Password field 'password' is required.", 'wp-rest-user'), array('status' => 400));
+		return $error;
+	}
+	$cred['user_login'] = $username;
+	$cred['user_password'] =  $password;
+	$cred['remember'] = true;
+	$user = wp_signon($cred, false);
+	if (!is_wp_error($user)){
+		return array(
+			"id" => $user->ID,
+			"email" => $user->user_email,
+		 	"name" => $user->display_name
+		);
+	}else{
+    	$error->add(401, __("The email or password is not valid.", 'wp-rest-user'), array('status' => 401));
+		return $error;
+	}
 }
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', 'menu', array(
@@ -165,6 +221,14 @@ add_action( 'rest_api_init', function () {
         'methods' => 'POST',
         'callback' => 'add_subsciber_newsletter',
     ) );
+	register_rest_route('wp/v2', 'signup', array(
+    	'methods' => 'POST',
+    	'callback' => 'signup',
+  	));
+	register_rest_route('wp/v2', 'signin', array(
+    	'methods' => 'POST',
+    	'callback' => 'signin',
+  	));
 } );
 
 function initCors( $value ) {

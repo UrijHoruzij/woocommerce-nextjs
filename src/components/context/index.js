@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { CartContext, TotalContext, DiscountContext } from '../';
+import { CartContext, TotalContext, DiscountContext, UserContext } from '../';
 
 const CartProvider = (props) => {
 	const [cart, setCart] = useState([]);
 	const [discount, setDiscount] = useState({});
 	const [total, setTotal] = useState(0);
+	const [user, setUser] = useState({});
 	useEffect(() => {
 		let cartData = localStorage.getItem('next-cart');
 		if (cartData !== null && cartData !== '[]') {
@@ -28,11 +29,13 @@ const CartProvider = (props) => {
 		setTotal(tempTotal.toFixed(2));
 	}, [cart]);
 	return (
-		<CartContext.Provider value={[cart, setCart]}>
-			<DiscountContext.Provider value={[discount, setDiscount]}>
-				<TotalContext.Provider value={[total, setTotal]}>{props.children}</TotalContext.Provider>
-			</DiscountContext.Provider>
-		</CartContext.Provider>
+		<UserContext.Provider value={[user, setUser]}>
+			<CartContext.Provider value={[cart, setCart]}>
+				<DiscountContext.Provider value={[discount, setDiscount]}>
+					<TotalContext.Provider value={[total, setTotal]}>{props.children}</TotalContext.Provider>
+				</DiscountContext.Provider>
+			</CartContext.Provider>
+		</UserContext.Provider>
 	);
 };
 export default CartProvider;
