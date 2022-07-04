@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { SITE_INFO, MENU, LOGO } from '../src/utils/endpoints';
-import { Layout, Auth } from '../src/components';
+import { Layout, SignIn } from '../src/components';
 import woocommerce from '../src/utils/woocommerce';
 
-const AuthPage = (props) => {
+const SignInPage = (props) => {
 	const { title, description, menu, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<Auth />
+			<SignIn />
 		</Layout>
 	);
 };
-export default AuthPage;
+export default SignInPage;
 
 export async function getStaticProps() {
 	const logo = await axios.get(LOGO);

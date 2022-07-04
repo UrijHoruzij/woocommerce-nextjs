@@ -15,4 +15,5 @@ export { default as Hero } from './Hero';
 export { default as Service } from './Service';
 export { default as Product } from './Product';
 export { default as Newsletter } from './Newsletter';
-export { default as Auth } from './Auth';
+export { default as SignIn } from './SignIn';
+export { default as SignUp } from './SignUp';

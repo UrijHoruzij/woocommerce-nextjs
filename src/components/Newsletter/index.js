@@ -18,7 +18,6 @@ const Newsletter = (props) => {
 					</p>
 					<form onSubmit={processSubscribe} className={styles.newsletter__form}>
 						<div className={styles.newsletter__inputWrapper}>
-							{/* <ion-icon name="mail-outline"></ion-icon> */}
 							<input
 								type="email"
 								name="email"
@@ -26,11 +25,10 @@ const Newsletter = (props) => {
 								required
 								className={styles.newsletter__input}
 							/>
+							<button type="submit" className={styles.newsletter__btn}>
+								Subscribe
+							</button>
 						</div>
-						<button type="submit" className={styles.newsletter__btn}>
-							<span>Subscribe</span>
-							{/* <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon> */}
-						</button>
 					</form>
 				</div>
 			</div>

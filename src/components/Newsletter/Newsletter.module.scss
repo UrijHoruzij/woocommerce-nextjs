@@ -27,18 +27,43 @@
 	}
 	&__inputWrapper {
 		position: relative;
-		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	&__input {
 		background: var(--color-white);
 		height: 60px;
 		padding-inline: 50px 20px;
 		border-radius: 6px;
+		font-family: var(--font-family);
+		color: var(--color-black);
+		font-size: var(--fs-7);
+		font-weight: 500;
 	}
 	&__btn {
+		background: var(--background, var(--color-black));
+		font-family: var(--font-family);
+		color: var(--color, var(--color-white));
+		font-size: var(--fs-7);
+		font-weight: 600;
+		height: var(--height, 60px);
+		padding-left: 32px;
+		padding-right: 32px;
+		border: 1px solid var(--border-color, var(--color-black));
+		border-radius: 6px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 10px;
+		transition: var(--transition);
+		&:hover,
+		&:focus {
+			--background: var(--white);
+			--color: var(--eerie-black);
+			--border-color: var(--eerie-black);
+		}
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
