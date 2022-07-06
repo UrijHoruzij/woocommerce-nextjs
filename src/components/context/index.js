@@ -28,6 +28,18 @@ const CartProvider = (props) => {
 		});
 		setTotal(tempTotal.toFixed(2));
 	}, [cart]);
+	useEffect(() => {
+		let userData = localStorage.getItem('next-user');
+		if (userData !== null && userData !== '{}') {
+			userData = JSON.parse(userData);
+			setUser(userData);
+		} else {
+			localStorage.setItem('next-user', JSON.stringify(user));
+		}
+	}, []);
+	useEffect(() => {
+		localStorage.setItem('next-user', JSON.stringify(user));
+	}, [user]);
 	return (
 		<UserContext.Provider value={[user, setUser]}>
 			<CartContext.Provider value={[cart, setCart]}>

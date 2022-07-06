@@ -5,12 +5,12 @@ import Image from 'next/image';
 import styles from './Header.module.scss';
 import loader from '../../utils/loader';
 import { replaceUrlMenu } from '../../utils/menu';
-import { CartContext, TotalContext } from '../';
+import { CartContext, TotalContext, UserContext } from '../';
 
 const Header = ({ title, favicon, description, menu, logo }) => {
 	const [cart, setCart] = useContext(CartContext);
 	const [total, setTotal] = useContext(TotalContext);
-
+	const [user, setUser] = useContext(UserContext);
 	return (
 		<>
 			<Head>
@@ -55,6 +55,7 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 						</div>
 						<div className="col-lg-2 col-md-2">
 							<div className={styles.cart}>
+								{user ? <div className={styles.user}>{user.name}</div> : null}
 								<Link href="/cart">
 									<a className={styles.cart__link}>
 										<div className={styles.cart__image}>

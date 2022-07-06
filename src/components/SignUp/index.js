@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SIGNUP } from '../../utils/endpoints';
@@ -7,6 +8,7 @@ import { UserContext } from '../';
 import loader from '../../utils/loader';
 import styles from './SignUp.module.scss';
 const SignUp = (props) => {
+	const router = useRouter();
 	const [user, setUser] = useContext(UserContext);
 	const processSignUp = async (e) => {
 		e.preventDefault();
@@ -17,6 +19,7 @@ const SignUp = (props) => {
 		};
 		const userData = await axios.post(SIGNUP, data);
 		setUser(userData.data);
+		router.push('/signin');
 	};
 	return (
 		<section className={styles.signUp}>

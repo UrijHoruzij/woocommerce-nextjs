@@ -6,3 +6,4 @@ export const PAGES = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/pag
 export const NEWSLETTER = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/newsletter`;
 export const SIGNIN = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/signin`;
 export const SIGNUP = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/signup`;
+export const SEARCH = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/wp-json/wp/v2/search`;
