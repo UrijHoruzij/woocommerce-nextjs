@@ -5,6 +5,7 @@ import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { removeFromCart, changeCart } from '../../utils/cart';
 import { CartContext, TotalContext, DiscountContext } from '../';
 import loader from '../../utils/loader';
+import { Grid } from 'ui-forest';
 import styles from './Cart.module.scss';
 
 const Cart = (props) => {
@@ -46,11 +47,11 @@ const Cart = (props) => {
 	};
 	return (
 		<section className={styles.cart}>
-			<div className="container">
-				<div className="row">
+			<Grid>
+				<Grid.Row>
 					{cart.length > 0 ? (
 						<>
-							<div className="col-lg-8">
+							<Grid.Column lg={8}>
 								<div className={styles.cart__table}>
 									<table>
 										<thead>
@@ -98,8 +99,8 @@ const Cart = (props) => {
 										</tbody>
 									</table>
 								</div>
-							</div>
-							<div className="col-lg-4">
+							</Grid.Column>
+							<Grid.Column lg={4}>
 								<div className={styles.cart__coupone}>
 									<h4 className={styles.cart__title}>Coupone</h4>
 									<div className={styles.cart__couponeContent}>
@@ -122,13 +123,13 @@ const Cart = (props) => {
 										<a className={styles.cart__btn}>Proceed to checkout</a>
 									</Link>
 								</div>
-							</div>
+							</Grid.Column>
 						</>
 					) : (
-						<div className="col-12"></div>
+						<Grid.Column col={12}></Grid.Column>
 					)}
-				</div>
-			</div>
+				</Grid.Row>
+			</Grid>
 		</section>
 	);
 };

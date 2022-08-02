@@ -3,16 +3,17 @@ import Image from 'next/image';
 import styles from './LatestPosts.module.scss';
 import { formatDate } from '../../utils/date';
 import loader from '../../utils/loader';
+import { Grid } from 'ui-forest';
 
 const LatestPosts = (props) => {
 	const { posts } = props;
 	return (
 		<section className={styles.blog}>
-			<div className="container">
+			<Grid>
 				<h2 className={styles.sectionTitle}>Latest fashion news</h2>
-				<div className="row">
+				<Grid.Row>
 					{posts.map((post) => (
-						<div key={post.id} className="col-md-4">
+						<Grid.Column key={post.id} md={4}>
 							<div className={styles.card}>
 								<div className={styles.card__image}>
 									<Link href={`/blog/${post.slug}`}>
@@ -41,10 +42,10 @@ const LatestPosts = (props) => {
 									</a>
 								</Link>
 							</div>
-						</div>
+						</Grid.Column>
 					))}
-				</div>
-			</div>
+				</Grid.Row>
+			</Grid>
 		</section>
 	);
 };

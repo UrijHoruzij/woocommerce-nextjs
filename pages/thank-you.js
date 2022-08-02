@@ -2,18 +2,19 @@ import axios from 'axios';
 import { SITE_INFO, MENU, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
 import { Layout } from '../src/components';
+import { Grid } from 'ui-forest';
 
 const ThankYou = (props) => {
 	const { title, description, menu, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<div className="container">
-				<div className="row">
-					<div className="col-12">
+			<Grid>
+				<Grid.Row>
+					<Grid.Column col={12}>
 						<h4>Thank You</h4>
-					</div>
-				</div>
-			</div>
+					</Grid.Column>
+				</Grid.Row>
+			</Grid>
 		</Layout>
 	);
 };

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {Grid} from 'ui-forest';
 import { SITE_INFO, MENU, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
 import { Layout } from '../src/components';
@@ -7,7 +8,7 @@ const Page404 = (props) => {
 	const { title, description, menu, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<div className="container">404</div>
+			<Grid>404</Grid>
 		</Layout>
 	);
 };

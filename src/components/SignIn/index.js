@@ -7,6 +7,7 @@ import { SIGNIN } from '../../utils/endpoints';
 import { UserContext } from '../';
 import loader from '../../utils/loader';
 import styles from './SignIn.module.scss';
+import Grid from 'ui-forest/dist/Grid';
 
 const SignIn = (props) => {
 	const router = useRouter();
@@ -24,14 +25,14 @@ const SignIn = (props) => {
 
 	return (
 		<section className={styles.signIn}>
-			<div className="container">
-				<div className="row">
-					<div className="col-md-6">
+			<Grid>
+				<Grid.Row>
+					<Grid.Column md={6}>
 						<div className={styles.signIn__image}>
 							<Image layout="fill" loader={loader} src="/images/signin.jpg" />
 						</div>
-					</div>
-					<div className="col-md-6">
+					</Grid.Column>
+					<Grid.Column md={6}>
 						<form onSubmit={processSignIn} className={styles.signIn__form}>
 							<input className={styles.signIn__input} placeholder="username" name="username" type="text" />
 							<input className={styles.signIn__input} placeholder="password" name="password" type="password" />
@@ -42,9 +43,9 @@ const SignIn = (props) => {
 								Sign in
 							</button>
 						</form>
-					</div>
-				</div>
-			</div>
+					</Grid.Column>
+				</Grid.Row>
+			</Grid>
 		</section>
 	);
 };

@@ -1,15 +1,14 @@
 import axios from 'axios';
-import Image from 'next/image';
 import { Layout } from '../../src/components';
 import { SITE_INFO, MENU, LOGO, POSTS, PAGES } from '../../src/utils/endpoints';
 import woocommerce from '../../src/utils/woocommerce';
-import loader from '../../src/utils/loader';
+import {Grid}from 'ui-forest';
 
 const Product = (props) => {
 	const { title, description, menu, content, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<div className="container">{content.title.rendered}</div>
+			<Grid>{content.title.rendered}</Grid>
 			<date>{content.date}</date>
 			<div>{content.rendered}</div>
 		</Layout>

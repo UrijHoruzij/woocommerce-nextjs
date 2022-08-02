@@ -133,7 +133,7 @@ function add_subsciber_newsletter($req){
   		$mailpoet_api = \MailPoet\API\API::MP('v1');
 		$email = sanitize_text_field($req['email']);
   		$error = new WP_Error();
-		$subscriber = array('email ' => $req['email']);
+		$subscriber = array('email' => $req['email']);
 		try {
 			$mailpoet_api->addSubscriber($subscriber);
 		} catch (\Exception $e) {

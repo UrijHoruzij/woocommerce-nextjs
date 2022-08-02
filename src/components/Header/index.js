@@ -6,6 +6,7 @@ import styles from './Header.module.scss';
 import loader from '../../utils/loader';
 import { replaceUrlMenu } from '../../utils/menu';
 import { CartContext, TotalContext, UserContext } from '../';
+import { Grid } from 'ui-forest';
 
 const Header = ({ title, favicon, description, menu, logo }) => {
 	const [cart, setCart] = useContext(CartContext);
@@ -18,9 +19,9 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 				<link rel="icon" href={favicon || '/favicon.svg'} />
 			</Head>
 			<header className={styles.header}>
-				<div className="container">
-					<div className="row">
-						<div className="col-lg-2 col-md-2">
+				<Grid>
+					<Grid.Row>
+						<Grid.Column lg={2} md={2}>
 							<div className={styles.logo}>
 								<Link href="/">
 									<a>
@@ -39,8 +40,8 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 									</a>
 								</Link>
 							</div>
-						</div>
-						<div className="col-lg-8 col-md-8">
+						</Grid.Column>
+						<Grid.Column lg={8} md={8}>
 							<nav className={styles.menu}>
 								<ul>
 									{menu.map((item) => (
@@ -52,8 +53,8 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 									))}
 								</ul>
 							</nav>
-						</div>
-						<div className="col-lg-2 col-md-2">
+						</Grid.Column>
+						<Grid.Column lg={2} md={2}>
 							<div className={styles.cart}>
 								{user ? <div className={styles.user}>{user.name}</div> : null}
 								<Link href="/cart">
@@ -66,9 +67,9 @@ const Header = ({ title, favicon, description, menu, logo }) => {
 									</a>
 								</Link>
 							</div>
-						</div>
-					</div>
-				</div>
+						</Grid.Column>
+					</Grid.Row>
+				</Grid>
 			</header>
 		</>
 	);

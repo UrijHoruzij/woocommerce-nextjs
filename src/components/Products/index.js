@@ -5,6 +5,7 @@ import styles from './Products.module.scss';
 import loader from '../../utils/loader';
 import { addToCart } from '../../utils/cart';
 import { CartContext } from '../';
+import { Grid } from 'ui-forest';
 
 const Products = (props) => {
 	const { products, title } = props;
@@ -17,11 +18,11 @@ const Products = (props) => {
 	};
 	return (
 		<section className={styles.product}>
-			<div className="container">
+			<Grid>
 				<h2 className={styles.sectionTitle}>{title}</h2>
-				<div className="row">
+				<Grid.Row>
 					{products.map((product) => (
-						<div key={product.id} className="col-lg-3 col-md-6">
+						<Grid.Column key={product.id} lg={3} md={6}>
 							<div className={styles.card}>
 								<figure className={styles.card__image}>
 									<Link href={`/product/${product.slug}`}>
@@ -56,10 +57,10 @@ const Products = (props) => {
 									</div>
 								</div>
 							</div>
-						</div>
+						</Grid.Column>
 					))}
-				</div>
-			</div>
+				</Grid.Row>
+			</Grid>
 		</section>
 	);
 };

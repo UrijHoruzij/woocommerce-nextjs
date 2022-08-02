@@ -7,6 +7,8 @@ import { SIGNUP } from '../../utils/endpoints';
 import { UserContext } from '../';
 import loader from '../../utils/loader';
 import styles from './SignUp.module.scss';
+import Grid from 'ui-forest/dist/Grid';
+
 const SignUp = (props) => {
 	const router = useRouter();
 	const [user, setUser] = useContext(UserContext);
@@ -23,9 +25,9 @@ const SignUp = (props) => {
 	};
 	return (
 		<section className={styles.signUp}>
-			<div className="container">
-				<div className="row">
-					<div className="col-md-6">
+			<Grid>
+				<Grid.Row>
+					<Grid.Column md={6}>
 						<form onSubmit={processSignUp} className={styles.signUp__form}>
 							<input className={styles.signUp__input} placeholder="username" name="username" type="text" />
 							<input className={styles.signUp__input} placeholder="email" name="email" type="email" />
@@ -37,13 +39,16 @@ const SignUp = (props) => {
 								Sign up
 							</button>
 						</form>
-					</div>
-					<div className="col-md-6">
+					</Grid.Column>
+					<Grid.Column md={6}>
 						<div className={styles.signUp__image}>
 							<Image layout="fill" loader={loader} src="/images/signup.jpg" />
 						</div>
-					</div>
-				</div>
+					</Grid.Column>
+				</Grid.Row>
+			</Grid>
+			<div className="container">
+				<div className="row"></div>
 			</div>
 		</section>
 	);

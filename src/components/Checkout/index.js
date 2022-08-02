@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { CartContext, TotalContext, DiscountContext } from '../';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import styles from './Checkout.module.scss';
+import { Grid } from 'ui-forest';
 
 const Checkout = (props) => {
 	const { shipping } = props;
@@ -92,30 +93,30 @@ const Checkout = (props) => {
 
 	return (
 		<section className={styles.checkout}>
-			<div className="container">
+			<Grid>
 				<div className={styles.checkout__form}>
 					<form onSubmit={processOrder}>
-						<div className="row">
-							<div className="col-lg-8 col-md-6">
+						<Grid.Row>
+							<Grid.Column lg={8} md={6}>
 								<h4 className={styles.checkout__title}>Billing Details</h4>
-								<div className="row">
-									<div className="col-lg-6">
+								<Grid.Row>
+									<Grid.Column lg={6}>
 										<label className={styles.checkout__label}>
 											<p>
 												Fist Name<span>*</span>
 											</p>
 											<input className={styles.checkout__input} type="text" name="firstName" />
 										</label>
-									</div>
-									<div className="col-lg-6">
+									</Grid.Column>
+									<Grid.Column lg={6}>
 										<label className={styles.checkout__label}>
 											<p>
 												Last Name<span>*</span>
 											</p>
 											<input className={styles.checkout__input} type="text" name="lastName" />
 										</label>
-									</div>
-								</div>
+									</Grid.Column>
+								</Grid.Row>
 								<label className={styles.checkout__label}>
 									<p>
 										Country<span>*</span>
@@ -152,26 +153,26 @@ const Checkout = (props) => {
 									</p>
 									<input className={styles.checkout__input} type="text" name="postcode" />
 								</label>
-								<div className="row">
-									<div className="col-lg-6">
+								<Grid.Row>
+									<Grid.Column lg={6}>
 										<label className={styles.checkout__label}>
 											<p>
 												Phone<span>*</span>
 											</p>
 											<input className={styles.checkout__input} type="text" name="phone" />
 										</label>
-									</div>
-									<div className="col-lg-6">
+									</Grid.Column>
+									<Grid.Column lg={6}>
 										<label className={styles.checkout__label}>
 											<p>
 												Email<span>*</span>
 											</p>
 											<input className={styles.checkout__input} type="text" name="email" />
 										</label>
-									</div>
-								</div>
-							</div>
-							<div className="col-lg-4 col-md-6">
+									</Grid.Column>
+								</Grid.Row>
+							</Grid.Column>
+							<Grid.Column lg={4} md={6}>
 								<div className={styles.checkout__order}>
 									<h4 className={styles.checkout__orderTitle}>Your order</h4>
 									<div className={styles.checkout__orderTable}>
@@ -215,11 +216,11 @@ const Checkout = (props) => {
 										Place order
 									</button>
 								</div>
-							</div>
-						</div>
+							</Grid.Column>
+						</Grid.Row>
 					</form>
 				</div>
-			</div>
+			</Grid>
 		</section>
 	);
 };

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { NEWSLETTER } from '../../utils/endpoints';
 import styles from './Newsletter.module.scss';
+import { Grid } from 'ui-forest';
+
 const Newsletter = (props) => {
 	const [success, setSuccess] = useState(false);
 	const processSubscribe = async (e) => {
@@ -10,7 +12,7 @@ const Newsletter = (props) => {
 	};
 	return (
 		<section className={styles.newsletter}>
-			<div className="container">
+			<Grid>
 				<div className={styles.newsletter__card}>
 					<h2 className={styles.newsletter__title}>Subscribe Newsletter</h2>
 					<p className={styles.newsletter__text}>
@@ -31,7 +33,7 @@ const Newsletter = (props) => {
 						</div>
 					</form>
 				</div>
-			</div>
+			</Grid>
 		</section>
 	);
 };

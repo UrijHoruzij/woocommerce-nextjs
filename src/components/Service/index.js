@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import loader from '../../utils/loader';
 import styles from './Service.module.scss';
+import { Grid } from 'ui-forest';
 
 const Service = (props) => {
 	return (
 		<section className={styles.service}>
-			<div className="container">
-				<div className="row">
-					<div className="col-lg-3 col-md-6">
+			<Grid>
+				<Grid.Row>
+					<Grid.Column lg={3} md={6}>
 						<div className={styles.service__card}>
 							<div className={styles.service__icon}>
 								<Image
@@ -24,8 +25,8 @@ const Service = (props) => {
 								<p className={styles.service__text}>On All Order Over $599</p>
 							</div>
 						</div>
-					</div>
-					<div className="col-lg-3 col-md-6">
+					</Grid.Column>
+					<Grid.Column lg={3} md={6}>
 						<div className={styles.service__card}>
 							<div className={styles.service__icon}>
 								<Image
@@ -42,8 +43,8 @@ const Service = (props) => {
 								<p className={styles.service__text}>30 Day Returns Policy</p>
 							</div>
 						</div>
-					</div>
-					<div className="col-lg-3 col-md-6">
+					</Grid.Column>
+					<Grid.Column lg={3} md={6}>
 						<div className={styles.service__card}>
 							<div className={styles.service__icon}>
 								<Image
@@ -60,8 +61,8 @@ const Service = (props) => {
 								<p className={styles.service__text}>100% Secure Gaurantee</p>
 							</div>
 						</div>
-					</div>
-					<div className="col-lg-3 col-md-6">
+					</Grid.Column>
+					<Grid.Column lg={3} md={6}>
 						<div className={styles.service__card}>
 							<div className={styles.service__tcon}>
 								<Image
@@ -78,8 +79,12 @@ const Service = (props) => {
 								<p className={styles.service__text}>24/7 Dedicated Support</p>
 							</div>
 						</div>
-					</div>
-				</div>
+					</Grid.Column>
+				</Grid.Row>
+			</Grid>
+
+			<div className="container">
+				<div className="row"></div>
 			</div>
 		</section>
 	);
