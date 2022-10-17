@@ -25,7 +25,7 @@
 		"cross-env": "^7.0.3",
 		"eslint": "8.25.0",
 		"eslint-config-next": "12.3.1",
-		"next-transpile-modules": "^9.0.0",
+		"next-transpile-modules": "^9.1.0",
 		"sass": "^1.55.0"
 	}
 }
