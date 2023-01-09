@@ -28,4 +28,4 @@ npm run build
 
 ## License
 
-Woocommerce-nextjs is released under the [MIT License](https://github.com/UrijHoruzij/woocommerce-nextjs/LICENSE.md).
+Woocommerce-nextjs is released under the [MIT License](https://github.com/UrijHoruzij/woocommerce-nextjs/blob/main/LICENSE).
