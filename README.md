@@ -3,7 +3,7 @@
   <h1 align="center">Woocommerce-nextjs</h1>
 </p>
 <p align="center">
-    <a aria-label="License" href="https://github.com/UrijHoruzij/woocommerce-nextjs/LICENSE.md">
+    <a aria-label="License" href="https://github.com/UrijHoruzij/woocommerce-nextjs/blob/main/LICENSE">
         <img alt="License" src="https://img.shields.io/github/license/UrijHoruzij/woocommerce-nextjs?color=%2351b88b">
     </a>
 </p>
