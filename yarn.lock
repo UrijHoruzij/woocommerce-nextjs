@@ -2606,10 +2606,10 @@ type-fest@^0.20.2:
   resolved "https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
 
-ui-forest@^1.11.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/ui-forest/-/ui-forest-1.11.1.tgz#663390935286d7f52c60d3250c9ac7b6711b753f"
-  integrity sha512-37nZBwMKwSsuh3t85oJexG8tv6G7XQfIrHL7IxKm1ty2/yfPY8PC1JcUpw/g5TquhDVWxdJNmd9awHm747roEA==
+ui-forest@^1.11.5:
+  version "1.11.5"
+  resolved "https://registry.yarnpkg.com/ui-forest/-/ui-forest-1.11.5.tgz#b3492e00d20920ad8ab9385763c07f521f0334a3"
+  integrity sha512-DaW/AaOe6GwYlLu1E0zNKWhmtZIZCLWVqnPsDTVe5IKc8o872IRNKK6RZAqJ8YHuRXoAQ3wBUo6W8I2Y8edfZg==
   dependencies:
     classnames "^2.3.1"
     normalize.css "^8.0.1"
