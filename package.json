@@ -26,6 +26,6 @@
 		"eslint": "8.35.0",
 		"eslint-config-next": "13.2.3",
 		"next-transpile-modules": "^10.0.0",
-		"sass": "^1.58.3"
+		"sass": "^1.59.2"
 	}
 }
