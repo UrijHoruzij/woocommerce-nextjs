@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"cross-env": "^7.0.3",
 		"eslint": "8.38.0",
-		"eslint-config-next": "13.2.4",
+		"eslint-config-next": "13.3.1",
 		"next-transpile-modules": "^10.0.0",
 		"sass": "^1.62.0"
 	}
