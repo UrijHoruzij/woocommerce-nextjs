@@ -1,39 +1,48 @@
-import { useContext, useState } from 'react';
+import { useState, FC, ChangeEvent } from 'react';
 import { useRouter } from 'next/router';
-import { CartContext, TotalContext, DiscountContext } from '../';
+import { useCart } from '../CartProvider';
+import { useDiscount } from '../DiscountProvider';
+import { useTotal } from '../TotalProvider';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
-import styles from './Checkout.module.scss';
 import { Grid } from 'ui-forest';
+import styles from './Checkout.module.scss';
 
-const Checkout = (props) => {
+interface CheckoutProps {
+	shipping: any[];
+}
+
+const Checkout: FC<CheckoutProps> = (props) => {
 	const { shipping } = props;
 	const router = useRouter();
-	const [cart, setCart] = useContext(CartContext);
-	const [discount, setDiscount] = useContext(DiscountContext);
-	const [total, setTotal] = useContext(TotalContext);
+	const { cart, clearCart } = useCart();
+	const { discount, addDiscount } = useDiscount();
+	const { total, setTotal } = useTotal();
 	const [shippingPrice, setShippingPrice] = useState(0);
-	const changeShipping = (e) => {
+	const changeShipping = (e: ChangeEvent<HTMLInputElement>) => {
 		if (e.target.value === 'flat_rate') {
 			setShippingPrice(10);
 		} else {
 			setShippingPrice(0);
 		}
 	};
-	const changeTotal = (total) => {
-		total = parseFloat(total);
-		if (discount.value) return total - (total * discount.value) / 100;
-		return total + shippingPrice;
+	const changeTotal = (total: string) => {
+		const sum = parseFloat(total);
+		if (discount.value) return sum - (sum * discount.value) / 100;
+		return sum + shippingPrice;
 	};
-	const processOrder = async (e) => {
+	const processOrder = async (e: any) => {
 		e.preventDefault();
-		const items = [];
-		cart.map((product) => {
+		const items: any[] = [];
+		cart.map((product: any) => {
 			items.push({
 				product_id: product.id,
 				quantity: product.quantity,
 			});
 		});
-		const shippingMethod = {
+		const shippingMethod: {
+			method_id: number | string;
+			total?: string;
+		} = {
 			method_id: e.target.shipping.value,
 		};
 		if (e.target.shipping.value === 'flat_rate') {
@@ -85,8 +94,8 @@ const Checkout = (props) => {
 			},
 		});
 		await woocommerce.post('orders', data);
-		setCart([]);
-		setDiscount({});
+		clearCart();
+		addDiscount({ value: 0 });
 		setTotal(0);
 		router.push('/thank-you');
 	};
@@ -180,7 +189,7 @@ const Checkout = (props) => {
 											<span>Product</span>
 											<span>Total</span>
 										</div>
-										{cart.map((product) => (
+										{cart.map((product: any) => (
 											<div className={styles.checkout__orderTableRow} key={product.id}>
 												<span>{product.name}</span>
 												<span>$ {product.quantity * product.price}</span>
@@ -195,7 +204,7 @@ const Checkout = (props) => {
 									) : null}
 									<div className={styles.checkout__shipping}>
 										<span className={styles.checkout__shippingTitle}>Shipping:</span>
-										{shipping.map((method) => (
+										{shipping.map((method: any) => (
 											<label className={styles.checkout__shippingLabel} key={method.id}>
 												{method.title} {method.id === 'flat_rate' ? '$10' : null}
 												<input
@@ -210,7 +219,7 @@ const Checkout = (props) => {
 									</div>
 									<div className={styles.checkout__total}>
 										<span className={styles.checkout__totalTitle}>Total:</span>
-										<span className={styles.checkout__totalPrice}>${changeTotal(total)}</span>
+										<span className={styles.checkout__totalPrice}>${changeTotal(total.toString())}</span>
 									</div>
 									<button type="submit" className={styles.checkout__btn}>
 										Place order

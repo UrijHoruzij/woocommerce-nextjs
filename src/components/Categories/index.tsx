@@ -1,16 +1,20 @@
+import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './Categories.module.scss';
 import loader from '../../utils/loader';
 import { Grid } from 'ui-forest';
+import styles from './Categories.module.scss';
 
-const Categories = (props) => {
+interface CategoriesProps {
+	categories: any;
+}
+const Categories: FC<CategoriesProps> = (props) => {
 	const { categories } = props;
 	return (
 		<section className={styles.categories}>
 			<Grid>
 				<Grid.Row>
-					{categories.map((category) => (
+					{categories.map((category: any) => (
 						<Grid.Column key={category.id} md={4}>
 							<div className={styles.categories__card}>
 								<div className={styles.categories__image}>
@@ -19,8 +23,8 @@ const Categories = (props) => {
 									) : null}
 								</div>
 								<div className={styles.categories__content}>
-									<Link href={`/category/${category.slug}`}>
-										<a className={styles.categories__link}>{category.name}</a>
+									<Link className={styles.categories__link} href={`/category/${category.slug}`}>
+										{category.name}
 									</Link>
 								</div>
 							</div>

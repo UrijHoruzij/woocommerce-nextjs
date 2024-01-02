@@ -3,7 +3,7 @@ import loader from '../../utils/loader';
 import styles from './Service.module.scss';
 import { Grid } from 'ui-forest';
 
-const Service = (props) => {
+const Service = () => {
 	return (
 		<section className={styles.service}>
 			<Grid>

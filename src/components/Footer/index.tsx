@@ -1,3 +1,4 @@
+import { FC, ReactNode } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.scss';
@@ -5,7 +6,15 @@ import loader from '../../utils/loader';
 import { replaceUrlMenu } from '../../utils/menu';
 import { Grid } from 'ui-forest';
 
-const Footer = (props) => {
+interface FooterProps {
+	menu: any[];
+	title: string;
+	description: string | ReactNode;
+	logo: string;
+	categories: any[];
+}
+
+const Footer: FC<FooterProps> = (props) => {
 	const { menu, title, description, logo, categories } = props;
 	return (
 		<footer className={styles.footer}>
@@ -15,20 +24,18 @@ const Footer = (props) => {
 						<Grid.Column md={4}>
 							<div className={styles.footer__logo}>
 								<Link href="/">
-									<a>
-										{logo ? (
-											<Image loader={loader} unoptimized={true} width={130} height={31} src={logo} alt={title} />
-										) : (
-											<Image
-												loader={loader}
-												unoptimized={true}
-												width={130}
-												height={31}
-												src="/images/logo.svg"
-												alt={title}
-											/>
-										)}
-									</a>
+									{logo ? (
+										<Image loader={loader} unoptimized={true} width={130} height={31} src={logo} alt={title} />
+									) : (
+										<Image
+											loader={loader}
+											unoptimized={true}
+											width={130}
+											height={31}
+											src="/images/logo.svg"
+											alt={title}
+										/>
+									)}
 								</Link>
 							</div>
 							<p className={styles.footer__text}>{description}</p>
@@ -38,8 +45,8 @@ const Footer = (props) => {
 							<ul className={styles.footer__list}>
 								{menu.map((item) => (
 									<li key={item.ID}>
-										<Link href={replaceUrlMenu(item.url)}>
-											<a className={styles.footer__link}>{item.title}</a>
+										<Link className={styles.footer__link} href={replaceUrlMenu(item.url)}>
+											{item.title}
 										</Link>
 									</li>
 								))}
@@ -50,8 +57,8 @@ const Footer = (props) => {
 							<ul className={styles.footer__list}>
 								{categories.map((category) => (
 									<li key={category.id}>
-										<Link href={`/category/${category.slug}`}>
-											<a className={styles.footer__link}>{category.name}</a>
+										<Link className={styles.footer__link} href={`/category/${category.slug}`}>
+											{category.name}
 										</Link>
 									</li>
 								))}

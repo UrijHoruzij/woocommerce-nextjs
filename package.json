@@ -3,14 +3,14 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "cross-env NODE_OPTIONS='--inspect' next dev",
+		"dev": "cross-env NODE_OPTIONS='--inspect' next dev --turbo",
 		"build": "next build && next export",
 		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {
 		"@woocommerce/woocommerce-rest-api": "^1.0.1",
-		"axios": "^1.4.0",
+		"axios": "^1.5.1",
 		"classnames": "^2.3.2",
 		"html-react-parser": "^4.0.0",
 		"next": "13.4.19",
@@ -22,10 +22,13 @@
 		"ui-forest": "^1.11.6"
 	},
 	"devDependencies": {
+		"@types/node": "20.8.7",
+		"@types/react": "18.2.31",
 		"cross-env": "^7.0.3",
 		"eslint": "8.43.0",
 		"eslint-config-next": "13.4.19",
 		"next-transpile-modules": "^10.0.1",
-		"sass": "^1.66.1"
+		"sass": "^1.66.1",
+		"typescript": "5.2.2"
 	}
 }
