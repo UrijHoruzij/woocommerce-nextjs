@@ -66,7 +66,14 @@ const Header: FC<HeaderProps> = (props) => {
 								{session ? <div className={styles.user}>{session.name}</div> : null}
 								<Link className={styles.cart__link} href="/cart">
 									<div className={styles.cart__image}>
-										<Image loader={loader} unoptimized={true} layout="fill" src="/images/icon/cart.png" alt="Cart" />
+										<Image
+											loader={loader}
+											unoptimized={true}
+											width={20}
+											height={20}
+											src="/images/icon/cart.png"
+											alt="Cart"
+										/>
 										{cart && cart.length > 0 ? <span className={styles.cart__count}>{cart.length}</span> : null}
 									</div>
 									<div className={styles.cart__price}>${total}</div>

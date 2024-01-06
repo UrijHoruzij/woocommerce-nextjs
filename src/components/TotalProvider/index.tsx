@@ -16,7 +16,7 @@ export const TotalContext = createContext<DataType>({
 });
 
 const TotalProvider: FC<TotalProviderProps> = (props) => {
-	const total = useRef<any | undefined>(undefined);
+	const total = useRef<any | null>(null);
 	const { cart } = useCart();
 
 	const setTotal = (sum: number) => {
@@ -25,12 +25,12 @@ const TotalProvider: FC<TotalProviderProps> = (props) => {
 
 	useEffect(() => {
 		const cartStorageData = localStorage.getItem('next-cart');
-		if (cartStorageData !== null && cartStorageData !== '[]') {
+		if (!!cartStorageData && cartStorageData !== 'null' && cartStorageData !== '[]') {
 			const cartData = JSON.parse(cartStorageData);
 			const sum = cartData?.reduce((acc: number, product: any) => {
 				return acc + parseFloat((product.price * product.quantity).toString());
 			}, 0);
-			setTotal(Number(sum.toFixed(2)));
+			setTotal(Number(sum?.toFixed(2)));
 		}
 	}, []);
 
@@ -38,7 +38,7 @@ const TotalProvider: FC<TotalProviderProps> = (props) => {
 		const sum = cart?.reduce((acc: number, product: any) => {
 			return acc + parseFloat((product.price * product.quantity).toString());
 		}, 0);
-		setTotal(Number(sum.toFixed(2)));
+		setTotal(Number(sum?.toFixed(2) || 0));
 	}, [cart]);
 
 	const val = useMemo(

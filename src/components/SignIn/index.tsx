@@ -7,7 +7,7 @@ import { SIGNIN } from '../../utils/endpoints';
 import loader from '../../utils/loader';
 import { useSession } from '../SessionProvider';
 import styles from './SignIn.module.scss';
-import { Grid } from 'ui-forest';
+import { Button, Grid, Input } from 'ui-forest';
 
 const SignIn: FC = () => {
 	const router = useRouter();
@@ -41,9 +41,9 @@ const SignIn: FC = () => {
 							<Link className={styles.signIn__link} href={'/signup'}>
 								Sign up
 							</Link>
-							<button className={styles.signIn__btn} type="submit">
+							<Button size="medium" variant="primary" className={styles.signIn__btn} type="submit">
 								Sign in
-							</button>
+							</Button>
 						</form>
 					</Grid.Column>
 				</Grid.Row>

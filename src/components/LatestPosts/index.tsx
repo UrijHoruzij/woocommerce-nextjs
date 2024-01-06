@@ -26,8 +26,9 @@ const LatestPosts: FC<LatestPostsProps> = (props) => {
 											loader={loader}
 											src="/images/blog-1.jpg"
 											alt={post.title.rendered}
-											layout="fill"
-											unoptimized={true}
+											width={300}
+											height={300}
+											unoptimized
 										/>
 									</Link>
 								</div>

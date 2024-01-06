@@ -25,16 +25,9 @@ const Footer: FC<FooterProps> = (props) => {
 							<div className={styles.footer__logo}>
 								<Link href="/">
 									{logo ? (
-										<Image loader={loader} unoptimized={true} width={130} height={31} src={logo} alt={title} />
+										<Image loader={loader} unoptimized width={130} height={31} src={logo} alt={title} />
 									) : (
-										<Image
-											loader={loader}
-											unoptimized={true}
-											width={130}
-											height={31}
-											src="/images/logo.svg"
-											alt={title}
-										/>
+										<Image loader={loader} unoptimized width={130} height={31} src="/images/logo.svg" alt={title} />
 									)}
 								</Link>
 							</div>

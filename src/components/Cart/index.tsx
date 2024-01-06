@@ -69,7 +69,8 @@ const Cart: FC = (props) => {
 																loader={loader}
 																unoptimized={true}
 																src={product.images[0].src}
-																layout="fill"
+																width={24}
+																height={24}
 																alt={product.images[0].alt}
 															/>
 														</div>

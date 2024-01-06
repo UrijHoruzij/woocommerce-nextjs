@@ -19,7 +19,14 @@ const Categories: FC<CategoriesProps> = (props) => {
 							<div className={styles.categories__card}>
 								<div className={styles.categories__image}>
 									{category.image ? (
-										<Image loader={loader} layout="fill" src={category.image.src} alt={category.name} />
+										<Image
+											loader={loader}
+											unoptimized
+											width={300}
+											height={300}
+											src={category.image.src}
+											alt={category.name}
+										/>
 									) : null}
 								</div>
 								<div className={styles.categories__content}>

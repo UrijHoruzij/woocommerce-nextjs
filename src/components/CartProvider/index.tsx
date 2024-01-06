@@ -23,7 +23,7 @@ export const CartContext = createContext<DataType>({
 });
 
 const CartProvider: FC<CartProviderProps> = (props) => {
-	const cart = useRef<any | undefined>(undefined);
+	const cart = useRef<any | null>(null);
 
 	const addToCart = async (product: any) => {
 		let newProduct = true;
@@ -63,7 +63,7 @@ const CartProvider: FC<CartProviderProps> = (props) => {
 
 	useEffect(() => {
 		const cartStorageData = localStorage.getItem('next-cart');
-		if (cartStorageData !== null && cartStorageData !== '[]') {
+		if (!!cartStorageData && cartStorageData !== 'null' && cartStorageData !== '[]') {
 			const cartData = JSON.parse(cartStorageData);
 			cart.current = cartData;
 		} else {

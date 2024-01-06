@@ -15,7 +15,7 @@ export const SessionContext = createContext<DataType>({
 });
 
 const SessionProvider: FC<SessionProviderProps> = (props) => {
-	const session = useRef<any | undefined>(undefined);
+	const session = useRef<any | null>(null);
 
 	const setSession = async (user: any) => {
 		session.current = user;
@@ -23,8 +23,8 @@ const SessionProvider: FC<SessionProviderProps> = (props) => {
 
 	useEffect(() => {
 		let userData: any = localStorage.getItem('next-user');
-		if (userData !== null && userData !== '{}') {
-			userData = JSON.parse(userData);
+		if (!!userData && userData !== 'null' && userData !== '{}') {
+			userData = JSON?.parse(userData);
 			setSession(userData);
 		} else {
 			localStorage.setItem('next-user', JSON.stringify(session.current));

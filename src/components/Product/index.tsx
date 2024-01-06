@@ -38,7 +38,15 @@ const Product: FC<ProductProps> = (props) => {
 					<Grid.Column md={6}>
 						<div className="product__images">
 							<div className={styles.product__preview}>
-								<Image layout="fill" loader={loader} src={preview} alt={product.name} />
+								<Image
+									// layout="fill"
+									width={300}
+									height={300}
+									unoptimized
+									loader={loader}
+									src={preview}
+									alt={product.name}
+								/>
 							</div>
 							{product.images.length >= 2 ? (
 								<div className={styles.product__gallery}>
@@ -47,7 +55,15 @@ const Product: FC<ProductProps> = (props) => {
 											key={image.id}
 											onClick={() => changePreview(image.src)}
 											className={styles.product__galleryItem}>
-											<Image layout="fill" loader={loader} src={image.src} alt={image.alt} />
+											<Image
+												width={300}
+												height={300}
+												unoptimized
+												//  layout="fill"
+												loader={loader}
+												src={image.src}
+												alt={image.alt}
+											/>
 										</div>
 									))}
 								</div>

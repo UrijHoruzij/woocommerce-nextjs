@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
 import styles from './Hero.module.scss';
 import { Grid } from 'ui-forest';
 
-const Hero = () => {
+const Hero: FC = () => {
 	return (
 		<section className={styles.hero}>
 			<Grid>

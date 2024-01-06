@@ -30,7 +30,7 @@ const Service = () => {
 						<div className={styles.service__card}>
 							<div className={styles.service__icon}>
 								<Image
-									unoptimized={true}
+									unoptimized
 									width={44}
 									height={44}
 									loader={loader}
