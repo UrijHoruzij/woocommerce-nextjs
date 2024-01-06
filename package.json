@@ -19,7 +19,7 @@
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
 		"react-markdown": "^8.0.7",
-		"ui-forest": "^1.11.6"
+		"ui-forest": "^1.12.1"
 	},
 	"devDependencies": {
 		"@types/node": "20.8.7",

@@ -513,7 +513,7 @@ cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-classnames@^2.3.1, classnames@^2.3.2:
+classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -2179,7 +2179,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.0.0, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.0.0, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2630,14 +2630,12 @@ typescript@5.2.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
 
-ui-forest@^1.11.6:
-  version "1.11.6"
-  resolved "https://registry.yarnpkg.com/ui-forest/-/ui-forest-1.11.6.tgz#1aa8bec2b4c588363837f036576b8787e1b787ab"
-  integrity sha512-7n025slHJ4olvb1pQQ+pt/LsgLQnT3FdTeFKOcwSGLrhntqUT8Fz7D/BALMpDmAPlj0+nr8qcLxG/WRi/FV6mw==
+ui-forest@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/ui-forest/-/ui-forest-1.12.1.tgz#865388d75d9b35307f1156724cc8affbbf9f44db"
+  integrity sha512-parV6gisy3yvwNfsXIW1ONNTfGNuZOrM4xC4c5cov+B/Kb5w6ia5Gf/NrZ79aSq3o+9femejxRUvboxOl4IUPg==
   dependencies:
-    classnames "^2.3.1"
     normalize.css "^8.0.1"
-    prop-types "^15.7.2"
     uuid "^8.3.2"
 
 unbox-primitive@^1.0.2:
