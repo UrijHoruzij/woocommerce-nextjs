@@ -1,8 +1,8 @@
-import Link from 'next/link';
+import React from 'react';
 import styles from './Hero.module.scss';
 import { Grid } from 'ui-forest';
 
-const Hero = (props) => {
+const Hero = () => {
 	return (
 		<section className={styles.hero}>
 			<Grid>

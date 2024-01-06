@@ -1,31 +1,31 @@
-import { useState, useContext } from 'react';
+import { useState, FC, ChangeEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
-import { removeFromCart, changeCart } from '../../utils/cart';
-import { CartContext, TotalContext, DiscountContext } from '../';
+import { useCart } from '../CartProvider';
+import { useDiscount } from '../DiscountProvider';
+import { useTotal } from '../TotalProvider';
 import loader from '../../utils/loader';
 import { Grid } from 'ui-forest';
 import styles from './Cart.module.scss';
 
-const Cart = (props) => {
-	const [code, setCode] = useState('');
-	const [cart, setCart] = useContext(CartContext);
-	const [discount, setDiscount] = useContext(DiscountContext);
-	const [total, setTotal] = useContext(TotalContext);
-	const changeTotal = (total) => {
+const Cart: FC = (props) => {
+	const [code, setCode] = useState<string>('');
+	const { cart, removeFromCart, changeCart } = useCart();
+	const { discount, addDiscount } = useDiscount();
+	const { total } = useTotal();
+	const changeTotal = () => {
 		if (discount.value) return total - (total * discount.value) / 100;
 		return total;
 	};
-	const changeQuantity = (event, product) => {
-		if (parseInt(event.target.value) > 0)
-			changeCart({ ...product, quantity: parseInt(event.target.value) }, cart, setCart);
-		if (parseInt(event.target.value) === 0) removeFromCart(product, cart, setCart);
+	const changeQuantity = (event: ChangeEvent<HTMLInputElement>, product: any) => {
+		if (parseInt(event.target.value) > 0) changeCart({ ...product, quantity: parseInt(event.target.value) });
+		if (parseInt(event.target.value) === 0) removeFromCart(product);
 	};
-	const changeCodeCoupon = (e) => {
+	const changeCodeCoupon = (e: ChangeEvent<HTMLInputElement>) => {
 		setCode(e.target.value);
 	};
-	const changeCoupon = async (code) => {
+	const changeCoupon = async (code: string) => {
 		const woocommerce = new WooCommerceRestApi({
 			url: process.env.NEXT_PUBLIC_WORDPRESS_URL_SSL,
 			consumerKey: process.env.NEXT_PUBLIC_WC_CONSUMER_KEY,
@@ -38,11 +38,9 @@ const Cart = (props) => {
 			},
 		});
 		const coupons = await woocommerce.get('coupons');
-		const coupon = coupons.find((item) => item.code == code);
-		if (coupon) {
-			if (coupon.discount_type == 'percent') {
-				setDiscount({ code: code, value: parseFloat(coupon.amount) });
-			}
+		const coupon = coupons.find((item: any) => item.code == code);
+		if (coupon && coupon.discount_type == 'percent') {
+			addDiscount({ code: code, value: parseFloat(coupon.amount) });
 		}
 	};
 	return (
@@ -63,7 +61,7 @@ const Cart = (props) => {
 											</tr>
 										</thead>
 										<tbody>
-											{cart.map((product) => (
+											{cart.map((product: any) => (
 												<tr key={product.id}>
 													<td className={styles.cart__item}>
 														<div className={styles.cart__image}>
@@ -91,9 +89,7 @@ const Cart = (props) => {
 													<td className={styles.cart__productPrice}>
 														${(product.quantity * product.price).toFixed(2)}
 													</td>
-													<td
-														className={styles.cart__close}
-														onClick={() => removeFromCart(product, cart, setCart)}></td>
+													<td className={styles.cart__close} onClick={() => removeFromCart(product)}></td>
 												</tr>
 											))}
 										</tbody>
@@ -117,10 +113,10 @@ const Cart = (props) => {
 									) : null}
 									<div className={styles.cart__totalPrice}>
 										Total: <span className={styles.cart__totalSumma}>$ {total}</span>
-										<span className={styles.cart__totalDiscount}>$ {changeTotal(total)}</span>
+										<span className={styles.cart__totalDiscount}>$ {changeTotal()}</span>
 									</div>
-									<Link href="/checkout">
-										<a className={styles.cart__btn}>Proceed to checkout</a>
+									<Link className={styles.cart__btn} href="/checkout">
+										Proceed to checkout
 									</Link>
 								</div>
 							</Grid.Column>
