@@ -26,7 +26,7 @@
 		"@types/react": "18.2.31",
 		"cross-env": "^7.0.3",
 		"eslint": "8.54.0",
-		"eslint-config-next": "13.4.19",
+		"eslint-config-next": "14.1.1",
 		"next-transpile-modules": "^10.0.1",
 		"sass": "^1.69.5",
 		"typescript": "5.2.2"
