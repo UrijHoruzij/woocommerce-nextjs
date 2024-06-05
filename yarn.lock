@@ -3481,10 +3481,10 @@ typescript@5.2.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
 
-ui-forest@^1.12.4:
-  version "1.12.4"
-  resolved "https://registry.yarnpkg.com/ui-forest/-/ui-forest-1.12.4.tgz#1a56484ecda15e7dcd0cab271ed6a3d55e805e53"
-  integrity sha512-H1199eRy3h6qBvJnFalfCjjvrfGIXp9gcX1E5eLbH349F8hvGXJ0jQmaCst4BuvfZDjXpMzLmPGtQN0a+exbRA==
+ui-forest@^1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/ui-forest/-/ui-forest-1.12.5.tgz#f8f072864d800048366fb8c86ce62a2495ba49e9"
+  integrity sha512-fPyXMFLtReUr1iUAu8WHxNqXF99UzwhoeDuIHfeg+56lw75DFaMDDgvS88qsBgBR725H3OXv4LskfAIKE7IJrw==
   dependencies:
     normalize.css "^8.0.1"
     uuid "^8.3.2"
