@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@woocommerce/woocommerce-rest-api": "^1.0.1",
-		"axios": "^1.6.8",
+		"axios": "^1.7.2",
 		"classnames": "^2.5.1",
 		"html-react-parser": "^5.1.10",
 		"next": "14.2.3",
