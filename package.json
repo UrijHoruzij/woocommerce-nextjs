@@ -22,7 +22,7 @@
 		"ui-forest": "^1.12.5"
 	},
 	"devDependencies": {
-		"@types/node": "20.14.2",
+		"@types/node": "22.8.7",
 		"@types/react": "18.3.6",
 		"cross-env": "^7.0.3",
 		"eslint": "8.57.0",
