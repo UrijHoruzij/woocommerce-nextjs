@@ -9,7 +9,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@woocommerce/woocommerce-rest-api": "^1.0.1",
+		"@woocommerce/woocommerce-rest-api": "^1.0.2",
 		"axios": "^1.13.0",
 		"classnames": "^2.5.1",
 		"html-react-parser": "^5.1.18",
