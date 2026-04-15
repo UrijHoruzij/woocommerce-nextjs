@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Grid} from 'ui-forest';
+import { Grid } from 'ui-forest';
 import { SITE_INFO, MENU, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
 import { Layout } from '../src/components';
