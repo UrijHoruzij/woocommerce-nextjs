@@ -1,10 +1,19 @@
+import React, { FC } from 'react';
 import axios from 'axios';
 import { SITE_INFO, MENU, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
 import { Layout } from '../src/components';
 import { Grid } from 'ui-forest';
 
-const ThankYou = (props) => {
+interface ThankYouProps {
+	title: any;
+	description: any;
+	menu: any;
+	logo: any;
+	categoriesFooter: any;
+}
+
+const ThankYou: FC<ThankYouProps> = (props) => {
 	const { title, description, menu, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>

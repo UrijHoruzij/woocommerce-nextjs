@@ -3,29 +3,32 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "cross-env NODE_OPTIONS='--inspect' next dev",
+		"dev": "next dev",
 		"build": "next build && next export",
 		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {
 		"@woocommerce/woocommerce-rest-api": "^1.0.1",
-		"axios": "^1.6.2",
-		"classnames": "^2.3.2",
-		"html-react-parser": "^5.0.6",
-		"next": "13.4.19",
+		"axios": "^1.13.0",
+		"classnames": "^2.5.1",
+		"html-react-parser": "^5.1.18",
+		"next": "15.5.2",
 		"normalize.css": "^8.0.1",
 		"prop-types": "^15.8.1",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-markdown": "^8.0.7",
-		"ui-forest": "^1.12.1"
+		"react": "18.3.1",
+		"react-dom": "18.3.1",
+		"react-markdown": "^9.0.1",
+		"ui-forest": "^1.12.5"
 	},
 	"devDependencies": {
-		"cross-env": "^7.0.3",
-		"eslint": "8.54.0",
-		"eslint-config-next": "13.4.19",
+		"@types/node": "24.7.0",
+		"@types/react": "18.3.12",
+		"cross-env": "^10.1.0",
+		"eslint": "8.57.0",
+		"eslint-config-next": "14.2.4",
 		"next-transpile-modules": "^10.0.1",
-		"sass": "^1.69.5"
+		"sass": "^1.97.1",
+		"typescript": "5.9.3"
 	}
 }

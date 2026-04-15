@@ -4,9 +4,9 @@ import { NEWSLETTER } from '../../utils/endpoints';
 import styles from './Newsletter.module.scss';
 import { Grid } from 'ui-forest';
 
-const Newsletter = (props) => {
+const Newsletter = () => {
 	const [success, setSuccess] = useState(false);
-	const processSubscribe = async (e) => {
+	const processSubscribe = async (e: any) => {
 		e.preventDefault();
 		axios.post(NEWSLETTER, { email: e.target.email.value });
 	};

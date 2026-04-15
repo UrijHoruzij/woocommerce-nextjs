@@ -3,7 +3,7 @@ import loader from '../../utils/loader';
 import styles from './Service.module.scss';
 import { Grid } from 'ui-forest';
 
-const Service = (props) => {
+const Service = () => {
 	return (
 		<section className={styles.service}>
 			<Grid>
@@ -30,7 +30,7 @@ const Service = (props) => {
 						<div className={styles.service__card}>
 							<div className={styles.service__icon}>
 								<Image
-									unoptimized={true}
+									unoptimized
 									width={44}
 									height={44}
 									loader={loader}

@@ -19,6 +19,16 @@ The idea behind this repository was to demonstrate the power of Next.js by creat
 - edit .env
 
 ```bash
+npm install
+```
+
+or
+
+```bash
+yarn install
+```
+
+```bash
 npm run build
 ```
 

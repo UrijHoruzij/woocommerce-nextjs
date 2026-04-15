@@ -1,23 +1,31 @@
+import React, { FC } from 'react';
 import axios from 'axios';
+import { Grid } from 'ui-forest';
 import { SITE_INFO, MENU, LOGO } from '../src/utils/endpoints';
 import woocommerce from '../src/utils/woocommerce';
-import { Layout, Products } from '../src/components';
+import { Layout } from '../src/components';
 
-const Shop = (props) => {
-	const { title, description, menu, products, logo, categoriesFooter } = props;
+interface Page404Props {
+	title: any;
+	description: any;
+	menu: any;
+	logo: any;
+	categoriesFooter: any;
+}
+const Page404: FC<Page404Props> = (props) => {
+	const { title, description, menu, logo, categoriesFooter } = props;
 	return (
 		<Layout logo={logo} menu={menu} title={title} description={description} categories={categoriesFooter}>
-			<Products products={products} title="Products" />
+			<Grid>404</Grid>
 		</Layout>
 	);
 };
-export default Shop;
+export default Page404;
 
 export async function getStaticProps() {
 	const logo = await axios.get(LOGO);
 	const menu = await axios.get(MENU);
 	const info = await axios.get(SITE_INFO);
-	const products = await woocommerce.get('products', { per_page: 50 });
 	const categoriesFooter = await woocommerce.get('products/categories', { per_page: 6 });
 
 	return {
@@ -26,7 +34,6 @@ export async function getStaticProps() {
 			menu: menu.data,
 			title: info.data.name,
 			description: info.data.description,
-			products: products.data,
 			categoriesFooter: categoriesFooter.data,
 		},
 		revalidate: 1,
